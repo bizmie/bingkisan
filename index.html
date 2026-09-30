@@ -74,7 +74,7 @@
             100% { transform: translate(0, 0) scale(1); opacity: 0.4; filter: blur(90px); } 
         }
 
-        /* Layout & Container */
+        /* Layout & Container (Lebar optimum pada telefon) */
         .app-wrapper {
             width: 100%; max-width: 500px; margin: 0 auto; padding: 15px 6px 90px 6px;
             display: flex; flex-direction: column; gap: 20px;
@@ -87,23 +87,36 @@
             box-shadow: var(--glass-shadow); position: relative; overflow: hidden; text-align: center;
         }
 
-        /* Animasi Berperingkat (Staggered Fade) */
+        /* Animasi Berperingkat (Smooth Fade) */
         .stagger-anim {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 1.2s ease-in-out;
         }
-        .reveal.active .stagger-anim {
+        .card-opened .stagger-anim {
             opacity: 1;
-            transform: translateY(0);
         }
 
         /* Scroll Reveal Animation */
         .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
+        /* Kelas Khas untuk Panel Pertama (Tanpa fade utama, supaya stagger nampak) */
+        .reveal-no-fade { opacity: 1; transform: none; background: var(--glass-bg); }
+
+        /* Animasi Berperingkat (Staggered Fade dari Atas ke Bawah) */
+        .stagger-anim {
+            opacity: 0;
+            transform: translateY(-25px); /* Jatuh dari atas */
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-no-fade.active .stagger-anim {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .bismillah { font-family: 'Scheherazade New', serif; font-size: 2.6rem; color: var(--primary); font-weight: 700; line-height: 1.5; }
-        .bismillah-sub { font-size: 0.9rem; color: var(--text-light); font-style: italic; margin-top: 12px; margin-bottom: 25px; font-weight: 500; }
+        .bismillah-sub { font-size: 0.95rem; color: var(--text-light); font-style: italic; margin-top: 15px; margin-bottom: 25px; font-weight: 500; }
         
         .badge {
             display: inline-flex; align-items: center; gap: 8px; padding: 8px 20px;
@@ -112,8 +125,19 @@
             border: 1px solid var(--glass-border); margin-bottom: 25px;
         }
 
-        .invite-text { color: var(--text-dark); font-size: 1.1rem; line-height: 1.7; margin-bottom: 25px; font-weight: 500; }
-        .invite-text b { color: var(--primary); font-weight: 700; font-size: 1.15rem; }
+        .invite-text { color: var(--text-dark); font-size: 1.15rem; line-height: 1.7; margin-bottom: 25px; font-weight: 600; }
+        .invite-text b { color: var(--primary); font-weight: 700; font-size: 1.2rem; }
+
+        /* Tema Cerah: Tajuk lebih menonjol */
+        body[data-theme^="pastel-"] .invite-text, 
+        body[data-theme^="pastel-"] .info-text p,
+        body[data-theme^="pastel-"] .time-desc,
+        body[data-theme^="pastel-"] .wish-name,
+        body[data-theme^="pastel-"] .wish-msg {
+            color: #1a1523; font-weight: 700;
+        }
+        
+        body[data-theme^="pastel-"] .info-text span { color: #4a4155; font-weight: 600; }
 
         .names-hero { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: var(--primary); font-weight: 700; line-height: 1.1; margin-top: 10px;}
         .names-hero .ampersand { font-size: 2.2rem; color: var(--accent); font-style: italic; display: block; margin: 5px 0; }
@@ -140,34 +164,34 @@
         body[data-theme^="dark-"] .info-row { background: rgba(0,0,0,0.2); }
         .info-icon { width: 45px; height: 45px; border-radius: 12px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.15); }
         .info-text h4 { font-size: 0.85rem; text-transform: uppercase; color: var(--accent); letter-spacing: 1px; margin-bottom: 4px; font-weight: 700; }
-        .info-text p { font-size: 1.1rem; font-weight: 700; color: var(--text-dark); line-height: 1.4;}
+        .info-text p { font-size: 1.15rem; font-weight: 700; color: var(--text-dark); line-height: 1.4;}
         .info-text span { font-size: 0.95rem; font-weight: 500; color: var(--text-light); }
 
         .map-wrapper { width: 100%; height: 200px; border-radius: 16px; overflow: hidden; border: 1px solid var(--glass-border); margin: 15px 0; }
         .map-wrapper iframe { width: 100%; height: 100%; border: 0; }
         .btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .btn-nav { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 12px; font-size: 0.8rem; font-weight: 700; text-decoration: none; transition: transform 0.2s; }
+        .btn-nav { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 12px; font-size: 0.85rem; font-weight: 700; text-decoration: none; transition: transform 0.2s; }
         .btn-gmaps { background: rgba(26, 115, 232, 0.1); color: #1a73e8; border: 1px solid rgba(26, 115, 232, 0.2); }
         .btn-waze { background: rgba(2, 136, 209, 0.1); color: #0288d1; border: 1px solid rgba(2, 136, 209, 0.2); }
         body[data-theme^="dark-"] .btn-gmaps { color: #64b5f6; } body[data-theme^="dark-"] .btn-waze { color: #4fc3f7; }
 
-        .section-title { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--primary); font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .section-title { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--primary); font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 8px; }
 
         /* Agenda Timeline */
         .timeline { display: flex; flex-direction: column; gap: 15px; text-align: left; margin-bottom: 25px; }
         .timeline-item { display: flex; gap: 15px; align-items: flex-start; }
-        .time-badge { font-size: 0.95rem; font-weight: 700; color: var(--accent); min-width: 85px; padding-top: 2px; }
-        .time-desc { font-size: 1.05rem; color: var(--text-dark); font-weight: 600; line-height: 1.4; }
+        .time-badge { font-size: 1rem; font-weight: 700; color: var(--accent); min-width: 85px; padding-top: 2px; }
+        .time-desc { font-size: 1.1rem; color: var(--text-dark); font-weight: 600; line-height: 1.4; }
 
         /* Guestbook list */
         .wishes-list { max-height: 300px; overflow-y: auto; padding-right: 5px; display: flex; flex-direction: column; gap: 12px; text-align: left; }
         .wishes-list::-webkit-scrollbar { width: 4px; } .wishes-list::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
         .wish-item { background: var(--input-bg); padding: 15px; border-radius: 16px; border: 1px solid var(--glass-border); }
-        .wish-name { font-size: 0.95rem; font-weight: 700; color: var(--primary); margin-bottom: 5px; }
-        .wish-msg { font-size: 1rem; color: var(--text-dark); line-height: 1.5; font-weight: 500; }
+        .wish-name { font-size: 1rem; font-weight: 700; color: var(--primary); margin-bottom: 5px; }
+        .wish-msg { font-size: 1.05rem; color: var(--text-dark); line-height: 1.5; font-weight: 500; }
 
         /* Buttons */
-        .btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px; border-radius: 16px; font-size: 0.95rem; font-weight: 700; text-decoration: none; border: none; cursor: pointer; transition: transform 0.2s; }
+        .btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px; border-radius: 16px; font-size: 1rem; font-weight: 700; text-decoration: none; border: none; cursor: pointer; transition: transform 0.2s; }
         .btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
         .btn-secondary { background: var(--input-bg); color: var(--text-dark); border: 1px solid var(--glass-border); margin-top: 12px; }
         .btn:active { transform: scale(0.98); }
@@ -186,16 +210,16 @@
             background: var(--glass-bg); backdrop-filter: blur(20px); border-top: 1px solid var(--glass-border);
             display: flex; justify-content: space-around; padding: 12px 0; z-index: 1000;
         }
-        .nav-item { color: var(--primary); text-decoration: none; font-size: 0.7rem; font-weight: 700; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 4px 10px; }
+        .nav-item { color: var(--primary); text-decoration: none; font-size: 0.75rem; font-weight: 700; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 4px 10px; }
 
         /* Admin RSVP Items */
         .admin-rsvp-item { background: var(--input-bg); padding: 12px; border-radius: 12px; border: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; text-align: left; margin-bottom: 10px; }
         .admin-rsvp-info { flex: 1; }
-        .admin-rsvp-name { font-size: 0.85rem; font-weight: 700; color: var(--primary); }
-        .admin-rsvp-status { font-size: 0.7rem; padding: 3px 8px; border-radius: 6px; font-weight: 700; display: inline-block; margin: 4px 0; }
+        .admin-rsvp-name { font-size: 0.9rem; font-weight: 700; color: var(--primary); }
+        .admin-rsvp-status { font-size: 0.75rem; padding: 3px 8px; border-radius: 6px; font-weight: 700; display: inline-block; margin: 4px 0; }
         .status-hadir { background: rgba(40, 167, 69, 0.15); color: #28a745; }
         .status-tidak { background: rgba(220, 53, 69, 0.15); color: #dc3545; }
-        .admin-rsvp-wish { font-size: 0.8rem; color: var(--text-dark); margin-top: 2px; }
+        .admin-rsvp-wish { font-size: 0.85rem; color: var(--text-dark); margin-top: 2px; }
         .btn-del-single { background: rgba(220, 53, 69, 0.1); color: #dc3545; border: none; width: 34px; height: 34px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: 0.2s; }
         .btn-del-single:hover { background: #dc3545; color: #fff; }
 
@@ -219,13 +243,13 @@
         .modal-close { position: absolute; top: 15px; right: 15px; background: var(--input-bg); color: var(--text-dark); border: none; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; }
         
         .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 6px; color: var(--text-dark); }
-        .form-control { width: 100%; padding: 14px; border-radius: 14px; border: 1px solid var(--glass-border); background: var(--input-bg); color: var(--text-dark); font-family: inherit; font-size: 0.9rem; outline: none; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px; color: var(--text-dark); }
+        .form-control { width: 100%; padding: 14px; border-radius: 14px; border: 1px solid var(--glass-border); background: var(--input-bg); color: var(--text-dark); font-family: inherit; font-size: 0.95rem; outline: none; }
         .form-control:focus { border-color: var(--primary); }
         textarea.form-control { resize: vertical; min-height: 80px; }
 
         .theme-section-wrapper { background: rgba(124, 98, 159, 0.05); padding: 15px; border-radius: 16px; margin-bottom: 20px; }
-        .theme-badge-type { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.5px; padding: 4px 10px; border-radius: 12px; font-weight: 700; margin-bottom: 12px; display: inline-block; }
+        .theme-badge-type { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; padding: 4px 10px; border-radius: 12px; font-weight: 700; margin-bottom: 12px; display: inline-block; }
         .theme-badge-light { background: #ebdfff; color: #5a417a; }
         .theme-badge-dark { background: #1e1b2e; color: #facc15; }
         .theme-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 5px; }
@@ -233,23 +257,23 @@
         .theme-card-option.selected { border-color: var(--primary); background: rgba(124, 98, 159, 0.1); }
         .theme-preview-dots { display: flex; gap: 5px; }
         .dot-color { width: 16px; height: 16px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.1); }
-        .theme-name { font-size: 0.65rem; font-weight: 700; color: var(--text-dark); line-height: 1.2; }
+        .theme-name { font-size: 0.7rem; font-weight: 700; color: var(--text-dark); line-height: 1.2; }
 
-        .admin-btn { background: transparent; color: var(--text-light); border: none; display: block; margin: 30px auto 10px auto; opacity: 0.5; cursor: pointer; font-size: 1rem;}
+        .admin-btn { background: transparent; color: var(--text-light); border: none; display: block; margin: 30px auto 10px auto; opacity: 0.5; cursor: pointer; font-size: 1.1rem;}
         
         .contact-btn {
             display: inline-flex; align-items: center; justify-content: center;
             width: 48px; height: 48px; border-radius: 50%;
             background: var(--input-bg); color: var(--primary);
             border: 1px solid var(--glass-border); box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            font-size: 1.1rem; text-decoration: none; transition: all 0.2s;
+            font-size: 1.2rem; text-decoration: none; transition: all 0.2s;
             margin: 20px auto 0 auto;
         }
         .contact-btn:hover { transform: scale(1.1); background: var(--primary); color: #fff; }
 
         .toast {
             position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-20px); opacity: 0;
-            background: var(--primary-dark); color: #fff; padding: 12px 24px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; z-index: 4000; transition: all 0.3s; pointer-events: none;
+            background: var(--primary-dark); color: #fff; padding: 12px 24px; border-radius: 50px; font-size: 0.9rem; font-weight: 600; z-index: 4000; transition: all 0.3s; pointer-events: none;
         }
         .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
@@ -272,10 +296,9 @@
             opacity: 0; transform: translateY(30px) scale(0.95);
         }
         @keyframes cardEntrance { to { opacity: 1; transform: translateY(0) scale(1); } }
-        @keyframes floatIntro { 0% { transform: translateY(0); } 100% { transform: translateY(-12px); } }
         
         .intro-title {
-            font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;
+            font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase;
             color: var(--text-light); margin-bottom: 20px; font-weight: 700;
             opacity: 0; animation: fadeInDown 0.8s ease forwards 0.4s;
         }
@@ -303,7 +326,7 @@
 
         .btn-buka {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: #fff; padding: 14px 28px; border-radius: 50px; font-size: 1rem;
+            color: #fff; padding: 14px 28px; border-radius: 50px; font-size: 1.05rem;
             font-weight: 700; border: none; cursor: pointer; box-shadow: 0 8px 20px rgba(0,0,0,0.15);
             transition: transform 0.2s, box-shadow 0.2s; display: inline-flex; align-items: center; gap: 10px;
             opacity: 0; animation: fadeInUp 0.8s ease forwards 1s; position: relative; overflow: hidden;
@@ -370,21 +393,21 @@
         
         <!-- Panel 1: Pengenalan & Nama -->
         <div class="glass-panel reveal" style="padding-top: 40px; padding-bottom: 40px;">
-            <div class="bismillah stagger-anim" style="transition-delay: 0.1s;">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
-            <div class="bismillah-sub stagger-anim" style="transition-delay: 0.2s;">Dengan Nama Allah Yang Maha Pengasih Lagi Maha Penyayang</div>
+            <div class="bismillah stagger-anim" style="transition-delay: 0.4s;">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+            <div class="bismillah-sub stagger-anim" style="transition-delay: 0.6s;">Dengan Nama Allah Yang Maha Pengasih Lagi Maha Penyayang</div>
             
-            <div class="badge stagger-anim" style="transition-delay: 0.3s;">
+            <div class="badge stagger-anim" style="transition-delay: 0.8s;">
                 <i class="fa-solid fa-heart" style="font-size: 0.6rem;"></i>
                 <span id="displayTajukKad">Walimatul'urus</span>
             </div>
 
-            <p class="invite-text stagger-anim" id="displayJemputan" style="transition-delay: 0.4s;">
+            <p class="invite-text stagger-anim" id="displayJemputan" style="transition-delay: 1.0s;">
                 Assalamu’alaikum Warahmatullahi Wabarakatuh & Salam Sejahtera,<br><br>
                 <span id="displayKataGanti">Kami</span>, <b style="color: var(--primary);"><span id="displayNamaHost1">Dato’ Razak</span> <span id="displayHostAmpersand">&</span> <span id="displayNamaHost2">Datin Aminah</span></b> dengan penuh rasa kesyukuran menjemput Dato’ / Datin / Tuan / Puan / Saudara / Saudari ke:
             </p>
             
             <!-- MAJLIS 1 KAD -->
-            <div class="stagger-anim" style="transition-delay: 0.5s;">
+            <div class="stagger-anim" style="transition-delay: 1.2s;">
                 <div style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 5px;" id="displayJenisMajlis">Majlis Akad Nikah</div>
                 <div class="names-hero" style="margin-top: 0;">
                     <span id="displaySubjek1">Naim</span>
@@ -393,12 +416,12 @@
                 </div>
             </div>
 
-            <div class="image-frame stagger-anim" id="frameImg1" style="margin-top: 25px; transition-delay: 0.6s;">
+            <div class="image-frame stagger-anim" id="frameImg1" style="margin-top: 25px; transition-delay: 1.4s;">
                 <img id="displayImage" src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gambar Majlis 1" onerror="this.src='https://placehold.co/400x500/e2d5f0/5a417a?text=Gambar+Majlis'">
             </div>
 
             <!-- MAJLIS 2 KAD (Sembunyi by default) -->
-            <div id="displayMajlis2Block" class="stagger-anim" style="display: none; margin-top: 35px; transition-delay: 0.7s;">
+            <div id="displayMajlis2Block" class="stagger-anim" style="display: none; margin-top: 35px; transition-delay: 1.6s;">
                 <div class="dan-separator">Dan</div>
                 <div style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 5px;" id="displayJenisMajlis2">Majlis Aqiqah</div>
                 <div class="names-hero" style="margin-top: 0; font-size: 3rem;">
@@ -408,7 +431,7 @@
                 </div>
             </div>
             
-            <div class="image-frame stagger-anim" id="frameImg2" style="margin-top: 25px; display: none; transition-delay: 0.8s;">
+            <div class="image-frame stagger-anim" id="frameImg2" style="margin-top: 25px; display: none; transition-delay: 1.8s;">
                 <img id="displayImage2" src="" alt="Gambar Majlis 2" onerror="this.src='https://placehold.co/400x500/e2d5f0/5a417a?text=Gambar+Majlis+2'">
             </div>
         </div>
@@ -461,7 +484,7 @@
                 <!-- Dijana oleh Javascript -->
             </div>
 
-            <div class="section-title" style="margin-top: 30px;"><i class="fa-solid fa-comments"></i> Buku Ucapan</div>
+            <div class="section-title" style="margin-top: 35px;"><i class="fa-solid fa-comments"></i> Buku Ucapan</div>
             <div class="wishes-list" id="wishesList">
                 <!-- Dijana oleh Javascript -->
             </div>
@@ -673,8 +696,8 @@
                     <div class="form-group" style="flex:1;"><label>Masa</label><input type="text" id="inMasa" class="form-control" value="4:30 Petang - 7:00 Malam"></div>
                 </div>
                 
-                <div class="form-group"><label>Nama Lokasi</label><input type="text" id="inLokasiNama" class="form-control" value="The Glasshouse Cafe"></div>
-                <div class="form-group"><label>Alamat / Kawasan</label><input type="text" id="inLokasiSub" class="form-control" value="Eco Sanctuary, Selangor"></div>
+                <div class="form-group"><label>Nama Lokasi / Tempat</label><input type="text" id="inLokasiNama" class="form-control" value="The Glasshouse Cafe"></div>
+                <div class="form-group"><label>Kawasan / Negeri</label><input type="text" id="inLokasiSub" class="form-control" value="Eco Sanctuary, Selangor"></div>
 
                 <div class="form-group" style="margin-top: 15px; margin-bottom: 25px;">
                     <label>No. Telefon Untuk Dihubungi <span style="font-weight:400; font-size:0.75rem;">(Hanya ikon akan terpapar)</span></label>
@@ -699,7 +722,7 @@
                 </div>
 
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
-                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--primary);">Versi v2.0</span>
+                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--primary);">Versi v2.1</span>
                     <button type="submit" class="btn btn-primary" style="width: auto; padding: 12px 24px;">Simpan Tetapan</button>
                 </div>
             </form>
@@ -948,7 +971,9 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
         }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        
+        // Perhatikan elemen yang biasa dan juga elemen 'no-fade' (untuk cetuskan stagger)
+        document.querySelectorAll('.reveal, .reveal-no-fade').forEach(el => observer.observe(el));
 
         // Music Control
         document.getElementById('musicBtn').onclick = function() {
@@ -992,6 +1017,7 @@
         document.getElementById('btnBukaKad').onclick = function() {
             window.scrollTo(0, 0);
             document.getElementById('introCover').classList.add('hide');
+            document.body.classList.add('card-opened');
             if(bgAudio.src && bgAudio.src !== window.location.href) {
                 bgAudio.play().catch(e => console.log(e));
                 isPlaying = true;
