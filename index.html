@@ -186,9 +186,17 @@
         /* Guestbook list */
         .wishes-list { max-height: 300px; overflow-y: auto; padding-right: 5px; display: flex; flex-direction: column; gap: 12px; text-align: left; }
         .wishes-list::-webkit-scrollbar { width: 4px; } .wishes-list::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
-        .wish-item { background: var(--input-bg); padding: 15px; border-radius: 16px; border: 1px solid var(--glass-border); }
-        .wish-name { font-size: 0.95rem; font-weight: 700; font-style: italic; color: var(--primary); margin-bottom: 5px; }
-        .wish-msg { font-size: 0.9rem; color: var(--text-dark); line-height: 1.5; font-weight: 500; font-style: italic; }
+        .wish-item { background: var(--input-bg); padding: 15px; border-radius: 16px; border: 1px solid var(--glass-border); text-align: center; }
+        .wish-msg { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--text-dark); line-height: 1.4; font-style: italic; margin-bottom: 8px; }
+        .wish-name { font-size: 0.75rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; }
+        
+        /* Featured Wish Styling */
+        .featured-wish { background: var(--input-bg); padding: 25px 20px; border-radius: 20px; border: 1px solid var(--glass-border); text-align: center; position: relative; }
+        .featured-wish-icon { font-size: 1.5rem; color: var(--accent); opacity: 0.5; margin-bottom: 12px; }
+        .featured-wish-msg {
+            font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; line-height: 1.5; font-style: italic; color: var(--text-dark);
+            display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 15px;
+        }
 
         /* Buttons */
         .btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px; border-radius: 16px; font-size: 1rem; font-weight: 700; text-decoration: none; border: none; cursor: pointer; transition: transform 0.2s; }
@@ -484,10 +492,14 @@
                 <!-- Dijana oleh Javascript -->
             </div>
 
-            <div class="section-title" style="margin-top: 35px;"><i class="fa-solid fa-comments"></i> Buku Ucapan</div>
-            <div class="wishes-list" id="wishesList">
+            <div class="section-title" style="margin-top: 30px;"><i class="fa-solid fa-comments"></i> Buku Ucapan</div>
+            <div id="featuredWishContainer">
                 <!-- Dijana oleh Javascript -->
             </div>
+            
+            <button id="openAllWishesBtn" class="btn btn-secondary" style="border-radius: 50px; margin-top: 15px;">
+                <i class="fa-regular fa-comments"></i> Lihat Semua Ucapan
+            </button>
         </div>
 
         <div class="glass-panel reveal" style="background: transparent; border: none; box-shadow: none; padding: 0;">
@@ -510,6 +522,17 @@
         <a href="#butiran" class="nav-item"><i class="fa-solid fa-map-location-dot"></i> Peta</a>
         <a href="#ucapan" class="nav-item"><i class="fa-solid fa-pen-fancy"></i> Ucapan</a>
         <a href="javascript:void(0)" class="nav-item" id="navRsvp"><i class="fa-solid fa-check-double"></i> RSVP</a>
+    </div>
+
+    <!-- All Wishes Modal -->
+    <div class="modal-overlay" id="allWishesModal">
+        <div class="modal-card">
+            <button class="modal-close" id="closeAllWishesBtn"><i class="fa-solid fa-xmark"></i></button>
+            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--primary); margin-bottom: 15px; text-align: center;"><i class="fa-solid fa-comments"></i> Senarai Ucapan</h3>
+            <div class="wishes-list" id="allWishesListContainer" style="max-height: 60vh;">
+                <!-- Dijana oleh Javascript -->
+            </div>
+        </div>
     </div>
 
     <!-- RSVP Form Modal -->
@@ -956,12 +979,33 @@
         }
 
         function renderWishes() {
-            const c = document.getElementById('wishesList');
-            if(!wishesData.length) { c.innerHTML = '<p style="font-size:0.8rem; opacity:0.7;">Jadilah orang pertama memberi ucapan!</p>'; return; }
-            c.innerHTML = wishesData.map(w => `
+            const featuredC = document.getElementById('featuredWishContainer');
+            const allC = document.getElementById('allWishesListContainer');
+            
+            // Susun ucapan dari yang terbaru (descending)
+            const sortedWishes = [...wishesData].sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
+
+            if(!sortedWishes.length) { 
+                featuredC.innerHTML = '<div class="featured-wish"><p style="font-size:0.9rem; opacity:0.7;">Jadilah orang pertama memberi ucapan!</p></div>'; 
+                allC.innerHTML = '<p style="font-size:0.9rem; opacity:0.7; text-align:center;">Tiada rekod ucapan.</p>';
+                return; 
+            }
+
+            // Ucapan Terkini (Maksimum 3 baris)
+            const latest = sortedWishes[0];
+            featuredC.innerHTML = `
+                <div class="featured-wish">
+                    <div class="featured-wish-icon"><i class="fa-solid fa-quote-left"></i></div>
+                    <div class="featured-wish-msg">"${escapeHtml(latest.wish || 'Hadir tanda sokongan!')}"</div>
+                    <div class="wish-name">&mdash; ${escapeHtml(latest.name)}</div>
+                </div>
+            `;
+
+            // Senarai Semua Ucapan
+            allC.innerHTML = sortedWishes.map(w => `
                 <div class="wish-item">
-                    <div class="wish-name">${escapeHtml(w.name)}</div>
                     <div class="wish-msg">"${escapeHtml(w.wish || 'Hadir tanda sokongan!')}"</div>
+                    <div class="wish-name">&mdash; ${escapeHtml(w.name)}</div>
                 </div>
             `).join('');
         }
@@ -989,6 +1033,10 @@
         document.getElementById('navRsvp').onclick = () => toggleModal('rsvpModal', true);
         document.getElementById('closeRsvpBtn').onclick = () => toggleModal('rsvpModal', false);
         
+        // All Wishes Toggle
+        document.getElementById('openAllWishesBtn').onclick = () => toggleModal('allWishesModal', true);
+        document.getElementById('closeAllWishesBtn').onclick = () => toggleModal('allWishesModal', false);
+
         // Password Admin Lock
         document.getElementById('openPasswordBtn').onclick = () => toggleModal('passwordModal', true);
         document.getElementById('closePasswordBtn').onclick = () => toggleModal('passwordModal', false);
