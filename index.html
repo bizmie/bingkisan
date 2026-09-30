@@ -387,14 +387,14 @@
         </div>
 
         <div class="intro-card">
-            <div class="intro-title" id="introTajuk">Walimatul'urus</div>
+            <div class="intro-title" id="introTajuk"></div>
             
             <!-- MAJLIS 1 INTRO -->
-            <div class="intro-event-type" id="introJenisMajlis">Majlis Akad Nikah</div>
+            <div class="intro-event-type" id="introJenisMajlis"></div>
             <div class="intro-names">
-                <span id="introSubjek1">Naim</span>
-                <span class="ampersand" id="introSubjekAmpersand">&</span>
-                <span id="introSubjek2">Sarah</span>
+                <span id="introSubjek1"></span>
+                <span class="ampersand" id="introSubjekAmpersand" style="display: none;">&</span>
+                <span id="introSubjek2"></span>
             </div>
 
             <!-- MAJLIS 2 INTRO (Sembunyi by default) -->
@@ -424,31 +424,31 @@
     <div class="app-wrapper" id="utama">
         
         <!-- Panel 1: Pengenalan & Nama -->
-        <div class="glass-panel reveal" style="padding-top: 40px; padding-bottom: 40px;">
+        <div class="glass-panel reveal-no-fade" style="padding-top: 40px; padding-bottom: 40px;">
             <div class="bismillah stagger-anim" style="transition-delay: 0.4s;">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
             <div class="bismillah-sub stagger-anim" style="transition-delay: 0.6s;">Dengan Nama Allah Yang Maha Pengasih Lagi Maha Penyayang</div>
             
             <div class="badge stagger-anim" style="transition-delay: 0.8s;">
                 <i class="fa-solid fa-heart" style="font-size: 0.6rem;"></i>
-                <span id="displayTajukKad">Walimatul'urus</span>
+                <span id="displayTajukKad"></span>
             </div>
 
             <p class="invite-text stagger-anim" id="displayJemputan" style="transition-delay: 1.0s;">
                 Assalamu’alaikum Warahmatullahi Wabarakatuh & Salam Sejahtera,<br><br>
-                <span id="displayKataGanti">Kami</span>, <b style="color: var(--primary);"><span id="displayNamaHost1">Dato’ Razak</span> <span id="displayHostAmpersand">&</span> <span id="displayNamaHost2">Datin Aminah</span></b> dengan penuh rasa kesyukuran menjemput Dato’ / Datin / Tuan / Puan / Saudara / Saudari ke:
+                <span id="displayKataGanti"></span> <b style="color: var(--primary);"><span id="displayNamaHost1"></span> <span id="displayHostAmpersand" style="display: none;">&</span> <span id="displayNamaHost2"></span></b> dengan penuh rasa kesyukuran menjemput Dato’ / Datin / Tuan / Puan / Saudara / Saudari ke:
             </p>
             
             <!-- MAJLIS 1 KAD -->
             <div class="stagger-anim" style="transition-delay: 1.2s;">
-                <div style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 5px;" id="displayJenisMajlis">Majlis Akad Nikah</div>
+                <div style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 5px;" id="displayJenisMajlis"></div>
                 <div class="names-hero" style="margin-top: 0;">
-                    <span id="displaySubjek1">Naim</span>
-                    <span class="ampersand" id="displaySubjekAmpersand">&</span>
-                    <span id="displaySubjek2">Sarah</span>
+                    <span id="displaySubjek1"></span>
+                    <span class="ampersand" id="displaySubjekAmpersand" style="display: none;">&</span>
+                    <span id="displaySubjek2"></span>
                 </div>
             </div>
 
-            <div class="image-frame stagger-anim" id="frameImg1" style="margin-top: 25px; transition-delay: 1.4s;">
+            <div class="image-frame stagger-anim" id="frameImg1" style="margin-top: 25px; transition-delay: 1.4s; display: none;">
                 <img id="displayImage" src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gambar Majlis 1" onerror="this.src='https://placehold.co/400x500/e2d5f0/5a417a?text=Gambar+Majlis'">
             </div>
 
@@ -471,10 +471,8 @@
         <!-- Panel 3: Mutiara Kata -->
         <div class="glass-panel reveal">
             <i class="fa-solid fa-quote-right quote-icon"></i>
-            <div class="quote-text" id="displayQuoteTeks">
-                "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang."
-            </div>
-            <span class="quote-source" id="displayQuoteSumber">— Surah Ar-Rum : 21</span>
+            <div class="quote-text" id="displayQuoteTeks"></div>
+            <span class="quote-source" id="displayQuoteSumber"></span>
         </div>
 
         <!-- Panel 4: Butiran Majlis & Peta -->
@@ -485,8 +483,8 @@
                 <div class="info-icon"><i class="fa-regular fa-clock"></i></div>
                 <div class="info-text">
                     <h4>Masa & Tarikh</h4>
-                    <p id="displayTarikh">Sabtu, 24 Oktober 2026</p>
-                    <span id="displayMasa">4:30 Petang - 7:00 Malam</span>
+                    <p id="displayTarikh"></p>
+                    <span id="displayMasa"></span>
                 </div>
             </div>
 
@@ -494,8 +492,8 @@
                 <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
                 <div class="info-text">
                     <h4>Lokasi</h4>
-                    <p id="displayLokasiNama">The Glasshouse Cafe</p>
-                    <span id="displayLokasiSub">Eco Sanctuary, Selangor</span>
+                    <p id="displayLokasiNama"></p>
+                    <span id="displayLokasiSub"></span>
                 </div>
             </div>
 
@@ -665,17 +663,17 @@
                     </div>
                 </div>
 
-                <div class="form-group"><label>Tajuk Lencana Atas</label><input type="text" id="inTajuk" class="form-control" value="Walimatul'urus"></div>
-                <div class="form-group"><label>Kata Ganti Diri (Cth: Kami, / Saya,)</label><input type="text" id="inKataGanti" class="form-control" value="Kami,"></div>
+                <div class="form-group"><label>Tajuk Lencana Atas</label><input type="text" id="inTajuk" class="form-control" value=""></div>
+                <div class="form-group"><label>Kata Ganti Diri (Cth: Kami, / Saya,)</label><input type="text" id="inKataGanti" class="form-control" value=""></div>
 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
                     <div class="form-group" style="display: flex; flex-direction: column; justify-content: flex-end;">
-                        <label>Nama 1<br><span style="font-weight:400; font-size:0.7rem;">(Host Utama)</span></label>
-                        <input type="text" id="inHost1" class="form-control" value="Dato’ Razak">
+                        <label for="inHost1">Nama 1<br><span style="font-weight:400; font-size:0.7rem;">(Host Utama)</span></label>
+                        <input type="text" id="inHost1" class="form-control" value="" required>
                     </div>
                     <div class="form-group" style="display: flex; flex-direction: column; justify-content: flex-end;">
-                        <label>Nama 2<br><span style="font-weight:400; font-size:0.7rem;">(Jika ada)</span></label>
-                        <input type="text" id="inHost2" class="form-control" value="Datin Aminah">
+                        <label for="inHost2">Nama 2<br><span style="font-weight:400; font-size:0.7rem;">(Jika ada)</span></label>
+                        <input type="text" id="inHost2" class="form-control" value="">
                     </div>
                 </div>
                 
@@ -699,16 +697,16 @@
                 <div id="boxMajlis1" style="border: 2px solid var(--primary); padding: 20px 15px 5px 15px; border-radius: 14px; margin-bottom: 20px; position: relative;">
                     <span id="labelMajlis1" style="position: absolute; top: -12px; left: 15px; background: var(--input-bg); padding: 0 10px; color: var(--primary); font-weight: 700; font-size: 0.85rem; display: none;">Majlis 1</span>
                     
-                    <div class="form-group"><label>Jenis Majlis</label><input type="text" id="inMajlis" class="form-control" value="Majlis Akad Nikah"></div>
+                    <div class="form-group"><label>Jenis Majlis</label><input type="text" id="inMajlis" class="form-control" value=""></div>
 
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
                         <div class="form-group" style="display: flex; flex-direction: column; justify-content: flex-end;">
-                            <label>Nama 1<br><span style="font-weight:400; font-size:0.7rem;">(Pengantin/Anak)</span></label>
-                            <input type="text" id="inSubjek1" class="form-control" value="Naim">
+                            <label for="inSubjek1">Nama 1<br><span style="font-weight:400; font-size:0.7rem;">(Pengantin/Anak)</span></label>
+                            <input type="text" id="inSubjek1" class="form-control" value="">
                         </div>
                         <div class="form-group" style="display: flex; flex-direction: column; justify-content: flex-end;">
-                            <label>Nama 2<br><span style="font-weight:400; font-size:0.7rem;">(Pengantin/Menantu)</span></label>
-                            <input type="text" id="inSubjek2" class="form-control" value="Sarah">
+                            <label for="inSubjek2">Nama 2<br><span style="font-weight:400; font-size:0.7rem;">(Pengantin/Menantu)</span></label>
+                            <input type="text" id="inSubjek2" class="form-control" value="">
                         </div>
                     </div>
                     <div class="form-group"><label>Pautan URL Gambar (Bingkai)</label><input type="url" id="inImej" class="form-control" placeholder="https://..."></div>
@@ -733,18 +731,18 @@
                     <div class="form-group"><label>Pautan URL Gambar Kedua (Jika Ada)</label><input type="url" id="inImej2" class="form-control" placeholder="https://..."></div>
                 </div>
                 
-                <div class="form-group"><label>Mutiara Kata / Ayat Jemputan</label><textarea id="inQuoteTeks" class="form-control">"Dan di antara tanda-tanda kekuasaan-Nya..."</textarea></div>
-                <div class="form-group"><label>Sumber Ayat / Kata</label><input type="text" id="inQuoteSumber" class="form-control" value="— Surah Ar-Rum : 21"></div>
+                <div class="form-group"><label>Mutiara Kata / Ayat Jemputan</label><textarea id="inQuoteTeks" class="form-control"></textarea></div>
+                <div class="form-group"><label>Sumber Ayat / Kata</label><input type="text" id="inQuoteSumber" class="form-control" value=""></div>
 
                 <div class="form-group"><label>Pautan Muzik Latar (MP3 URL)</label><input type="url" id="inAudio" class="form-control" placeholder="https://...mp3"></div>
 
                 <div style="display: flex; gap: 10px;">
-                    <div class="form-group" style="flex:1;"><label>Tarikh</label><input type="text" id="inTarikh" class="form-control" value="Sabtu, 24 Oktober 2026"></div>
-                    <div class="form-group" style="flex:1;"><label>Masa</label><input type="text" id="inMasa" class="form-control" value="4:30 Petang - 7:00 Malam"></div>
+                    <div class="form-group" style="flex:1;"><label>Tarikh</label><input type="text" id="inTarikh" class="form-control" value=""></div>
+                    <div class="form-group" style="flex:1;"><label>Masa</label><input type="text" id="inMasa" class="form-control" value=""></div>
                 </div>
                 
-                <div class="form-group"><label>Nama Lokasi / Tempat</label><input type="text" id="inLokasiNama" class="form-control" value="The Glasshouse Cafe"></div>
-                <div class="form-group"><label>Kawasan / Negeri</label><input type="text" id="inLokasiSub" class="form-control" value="Eco Sanctuary, Selangor"></div>
+                <div class="form-group"><label>Nama Lokasi / Tempat</label><input type="text" id="inLokasiNama" class="form-control" value=""></div>
+                <div class="form-group"><label>Kawasan / Negeri</label><input type="text" id="inLokasiSub" class="form-control" value=""></div>
 
                 <div class="form-group" style="margin-top: 15px; margin-bottom: 25px;">
                     <label>No. Telefon Untuk Dihubungi <span style="font-weight:400; font-size:0.75rem;">(Hanya ikon akan terpapar)</span></label>
