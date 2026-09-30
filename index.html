@@ -2,1447 +2,519 @@
 <html lang="ms">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jemputan Akad Nikah | Naim & Sarah</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Jemputan Majlis | Jemputan</title>
     
-    <!-- Google Fonts: Cormorant Garamond, Plus Jakarta Sans, Scheherazade New for Bismillah -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
+            /* Tema Asas (Pastel Lavender) */
             --bg-color: #f6f2f9;
-            --card-bg: rgba(255, 255, 255, 0.90);
-            --section-bg: rgba(255, 255, 255, 0.70);
-            --item-bg: #ffffff;
-            --primary: #7c629f;    /* Pastel Deep Lavender */
-            --primary-dark: #5a417a;
-            --accent: #a879c1;     /* Lilac / Soft Violet */
-            --accent-light: #f4eef9;
-            --text-dark: #2d2635;
-            --text-light: #6e6378;
-            --white: #ffffff;
-            --btn-text: #ffffff;
-            --btn-secondary-bg: #ffffff;
-            --btn-secondary-text: #2d2635;
-            --badge-bg: rgba(124, 98, 159, 0.12);
-            --shadow: 0 20px 45px rgba(90, 65, 122, 0.12);
-            --border-color: rgba(255, 255, 255, 0.85);
-        }
-
-        /* 3 TEMA CERAH (PASTEL) */
-        body[data-theme="pastel-lavender"] {
-            --bg-color: #f6f2f9;
-            --card-bg: rgba(255, 255, 255, 0.92);
-            --section-bg: rgba(255, 255, 255, 0.70);
-            --item-bg: #ffffff;
             --primary: #7c629f;
             --primary-dark: #5a417a;
             --accent: #a879c1;
-            --accent-light: #f4eef9;
             --text-dark: #2d2635;
             --text-light: #6e6378;
-            --btn-text: #ffffff;
-            --btn-secondary-bg: #ffffff;
-            --btn-secondary-text: #2d2635;
-            --badge-bg: rgba(124, 98, 159, 0.12);
-            --shadow: 0 20px 45px rgba(90, 65, 122, 0.12);
-            --border-color: rgba(255, 255, 255, 0.85);
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --glass-shadow: 0 8px 32px rgba(90, 65, 122, 0.08);
+            --input-bg: rgba(255, 255, 255, 0.85);
+            --white: #ffffff;
         }
 
+        /* Tema-tema Lain */
         body[data-theme="pastel-sage"] {
-            --bg-color: #f2f6f3;
-            --card-bg: rgba(255, 255, 255, 0.92);
-            --section-bg: rgba(255, 255, 255, 0.70);
-            --item-bg: #ffffff;
-            --primary: #5c7059;
-            --primary-dark: #3e4e3c;
-            --accent: #8a9a86;
-            --accent-light: #ebf0ea;
-            --text-dark: #232a22;
-            --text-light: #596657;
-            --btn-text: #ffffff;
-            --btn-secondary-bg: #ffffff;
-            --btn-secondary-text: #232a22;
-            --badge-bg: rgba(92, 112, 89, 0.12);
-            --shadow: 0 20px 45px rgba(62, 78, 60, 0.12);
-            --border-color: rgba(255, 255, 255, 0.85);
+            --bg-color: #f2f6f3; --primary: #5c7059; --primary-dark: #3e4e3c; --accent: #8a9a86;
+            --text-dark: #232a22; --text-light: #596657; --glass-shadow: 0 8px 32px rgba(92, 112, 89, 0.08);
         }
-
         body[data-theme="pastel-blush"] {
-            --bg-color: #faf2f4;
-            --card-bg: rgba(255, 255, 255, 0.92);
-            --section-bg: rgba(255, 255, 255, 0.70);
-            --item-bg: #ffffff;
-            --primary: #a26573;
-            --primary-dark: #7c4653;
-            --accent: #c88b98;
-            --accent-light: #f8ecee;
-            --text-dark: #332125;
-            --text-light: #755259;
-            --btn-text: #ffffff;
-            --btn-secondary-bg: #ffffff;
-            --btn-secondary-text: #332125;
-            --badge-bg: rgba(162, 101, 115, 0.12);
-            --shadow: 0 20px 45px rgba(124, 70, 83, 0.12);
-            --border-color: rgba(255, 255, 255, 0.85);
+            --bg-color: #fdf6f7; --primary: #a26573; --primary-dark: #7c4653; --accent: #c88b98;
+            --text-dark: #332125; --text-light: #755259; --glass-shadow: 0 8px 32px rgba(162, 101, 115, 0.08);
         }
-
-        /* 3 TEMA GELAP (WARNA-WARNI, MEWAH & TINGGI KONTRAS) */
         body[data-theme="dark-emerald"] {
-            --bg-color: #0b1814;
-            --card-bg: rgba(15, 30, 26, 0.96);
-            --section-bg: rgba(22, 42, 37, 0.85);
-            --item-bg: #1c352f;
-            --primary: #f3cf7a;          /* Champange Gold */
-            --primary-dark: #d4a73b;
-            --accent: #52d6b8;          /* Mint Emerald */
-            --accent-light: #16362e;
-            --text-dark: #f5faf8;         /* High Contrast Bright Text */
-            --text-light: #b3d4c4;        /* Soft Emerald Gray */
-            --btn-text: #0b1814;         /* Dark text for gold buttons */
-            --btn-secondary-bg: #1f3b34;
-            --btn-secondary-text: #f5faf8;
-            --badge-bg: rgba(243, 207, 122, 0.18);
-            --shadow: 0 20px 45px rgba(0, 0, 0, 0.65);
-            --border-color: rgba(82, 214, 184, 0.35);
+            --bg-color: #0b1814; --primary: #f3cf7a; --primary-dark: #d4a73b; --accent: #52d6b8;
+            --text-dark: #f5faf8; --text-light: #b3d4c4; --glass-bg: rgba(15, 30, 26, 0.55);
+            --glass-border: rgba(82, 214, 184, 0.15); --glass-shadow: 0 12px 40px rgba(0, 0, 0, 0.6); --input-bg: rgba(22, 42, 37, 0.8);
         }
-
         body[data-theme="dark-sapphire"] {
-            --bg-color: #0c1222;
-            --card-bg: rgba(18, 26, 48, 0.96);
-            --section-bg: rgba(26, 38, 68, 0.85);
-            --item-bg: #1f2d50;
-            --primary: #f8a5c2;          /* Rose Gold / Soft Pink */
-            --primary-dark: #e06d92;
-            --accent: #74b9ff;          /* Sapphire Sky Blue */
-            --accent-light: #1b2848;
-            --text-dark: #f4f7ff;         /* Bright Crisp Text */
-            --text-light: #b4c6ee;        /* Slate Sapphire Light */
-            --btn-text: #0c1222;         /* Dark text for rose gold buttons */
-            --btn-secondary-bg: #223258;
-            --btn-secondary-text: #f4f7ff;
-            --badge-bg: rgba(248, 165, 194, 0.18);
-            --shadow: 0 20px 45px rgba(0, 0, 0, 0.65);
-            --border-color: rgba(116, 185, 255, 0.35);
+            --bg-color: #080c17; --primary: #f8a5c2; --primary-dark: #e06d92; --accent: #74b9ff;
+            --text-dark: #f4f7ff; --text-light: #b4c6ee; --glass-bg: rgba(18, 26, 48, 0.55);
+            --glass-border: rgba(116, 185, 255, 0.15); --glass-shadow: 0 12px 40px rgba(0, 0, 0, 0.6); --input-bg: rgba(26, 38, 68, 0.8);
         }
-
         body[data-theme="dark-violet"] {
-            --bg-color: #130f24;
-            --card-bg: rgba(25, 19, 44, 0.96);
-            --section-bg: rgba(37, 28, 62, 0.85);
-            --item-bg: #2d224b;
-            --primary: #d8b4fe;          /* Bright Velvet Lilac */
-            --primary-dark: #a855f7;
-            --accent: #facc15;          /* Gold Accent */
-            --accent-light: #291d45;
-            --text-dark: #f8f5ff;         /* Crisp White Violet */
-            --text-light: #cfc2ee;        /* Soft Violet Gray */
-            --btn-text: #130f24;         /* Dark text for lilac buttons */
-            --btn-secondary-bg: #322554;
-            --btn-secondary-text: #f8f5ff;
-            --badge-bg: rgba(216, 180, 254, 0.18);
-            --shadow: 0 20px 45px rgba(0, 0, 0, 0.65);
-            --border-color: rgba(216, 180, 254, 0.35);
+            --bg-color: #0e0a1a; --primary: #d8b4fe; --primary-dark: #a855f7; --accent: #facc15;
+            --text-dark: #f8f5ff; --text-light: #cfc2ee; --glass-bg: rgba(25, 19, 44, 0.55);
+            --glass-border: rgba(216, 180, 254, 0.15); --glass-shadow: 0 12px 40px rgba(0, 0, 0, 0.6); --input-bg: rgba(37, 28, 62, 0.8);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-dark);
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 25px 15px 25px 15px;
-            background-image: 
-                radial-gradient(at 10% 10%, rgba(168, 121, 193, 0.18) 0px, transparent 50%),
-                radial-gradient(at 90% 90%, rgba(124, 98, 159, 0.20) 0px, transparent 50%),
-                radial-gradient(at 50% 50%, rgba(246, 242, 249, 0.5) 0px, transparent 100%);
-            background-attachment: fixed;
-            position: relative;
-            transition: background-color 0.4s ease, color 0.4s ease;
+            overflow-x: hidden;
+            transition: background-color 0.5s ease;
         }
 
-        /* Floating Audio Music Button */
-        .music-floating-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: var(--btn-text);
-            border: 2px solid var(--border-color);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 1000;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            outline: none;
+        /* Animated Blobs Background (Soft Glowing) */
+        .blobs-container { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: -1; overflow: hidden; pointer-events: none; background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.02) 100%); }
+        .blob { position: absolute; border-radius: 50%; filter: blur(90px); mix-blend-mode: multiply; animation: floatBlob 15s infinite alternate cubic-bezier(0.4, 0, 0.2, 1); }
+        body[data-theme^="dark-"] .blob { mix-blend-mode: screen; }
+        .blob-1 { top: -10%; left: -10%; width: 55vw; height: 55vw; max-width: 500px; max-height: 500px; background: var(--primary); opacity: 0.6; }
+        .blob-2 { bottom: -10%; right: -10%; width: 65vw; height: 65vw; max-width: 600px; max-height: 600px; background: var(--accent); animation-delay: -5s; opacity: 0.5; }
+        .blob-3 { top: 30%; left: 50%; width: 45vw; height: 45vw; max-width: 400px; max-height: 400px; background: var(--primary-dark); animation-delay: -10s; opacity: 0.4; }
+        
+        @keyframes floatBlob { 
+            0% { transform: translate(0, 0) scale(1); opacity: 0.4; filter: blur(90px); } 
+            33% { transform: translate(8%, 12%) scale(1.2); opacity: 0.7; filter: blur(70px); } 
+            66% { transform: translate(-5%, 8%) scale(0.85); opacity: 0.5; filter: blur(100px); }
+            100% { transform: translate(0, 0) scale(1); opacity: 0.4; filter: blur(90px); } 
         }
 
-        .music-floating-btn:hover {
-            transform: scale(1.1);
+        /* Layout & Container */
+        .app-wrapper {
+            width: 100%; max-width: 480px; margin: 0 auto; padding: 25px 15px 90px 15px;
+            display: flex; flex-direction: column; gap: 20px;
         }
 
-        .music-floating-btn.playing i {
-            animation: spin 3s linear infinite;
+        /* Glassmorphism Panel */
+        .glass-panel {
+            background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border); border-radius: 28px; padding: 28px 24px;
+            box-shadow: var(--glass-shadow); position: relative; overflow: hidden; text-align: center;
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+        /* Scroll Reveal Animation */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* Ambient floating leaf icons */
-        .bg-decoration {
-            position: fixed;
-            color: rgba(124, 98, 159, 0.14);
-            font-size: 6rem;
-            z-index: 0;
-            pointer-events: none;
-            animation: floatSlow 9s ease-in-out infinite alternate;
-        }
-
-        .bg-dec-1 { top: 5%; left: 4%; transform: rotate(-20deg); }
-        .bg-dec-2 { bottom: 8%; right: 5%; transform: rotate(15deg); }
-
-        @keyframes floatSlow {
-            0% { transform: translateY(0) rotate(-10deg); }
-            100% { transform: translateY(-25px) rotate(10deg); }
-        }
-
-        /* Container Card */
-        .card-container {
-            width: 100%;
-            max-width: 480px;
-            background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 36px;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow);
-            padding: 42px 28px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-            animation: cardAppear 1s cubic-bezier(0.16, 1, 0.3, 1);
-            transition: background 0.4s ease, border-color 0.4s ease;
-        }
-
-        @keyframes cardAppear {
-            0% { opacity: 0; transform: translateY(20px) scale(0.98); }
-            100% { opacity: 1; transform: translateY(0) scale(1); }
-        }
-
-        .bismillah-box {
-            margin-bottom: 20px;
-        }
-
-        .bismillah-arabic {
-            font-family: 'Scheherazade New', 'Cormorant Garamond', serif;
-            font-size: 2.1rem;
-            color: var(--primary);
-            line-height: 1.6;
-            direction: rtl;
-            font-weight: 700;
-        }
-
-        .bismillah-translation {
-            font-size: 0.78rem;
-            color: var(--text-light);
-            font-style: italic;
-            margin-top: 4px;
-            letter-spacing: 0.3px;
-        }
-
+        .bismillah { font-family: 'Scheherazade New', serif; font-size: 2.2rem; color: var(--primary); font-weight: 700; line-height: 1.5; }
+        .bismillah-sub { font-size: 0.75rem; color: var(--text-light); font-style: italic; margin-bottom: 20px; }
+        
         .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 18px;
-            background: var(--badge-bg);
-            color: var(--primary);
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            border: 1px solid var(--border-color);
+            display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px;
+            background: rgba(124, 98, 159, 0.1); color: var(--primary); border-radius: 50px;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+            border: 1px solid var(--glass-border); margin-bottom: 20px;
         }
 
-        .serif-title {
-            font-family: 'Cormorant Garamond', serif;
-        }
+        .invite-text { color: var(--text-light); font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px; }
+        .invite-text b { color: var(--primary); }
 
-        h1 {
-            font-size: 3.1rem;
-            color: var(--primary);
-            font-weight: 600;
-            line-height: 1.2;
-            margin: 12px 0;
-            letter-spacing: -0.5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
+        .names-hero { font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--primary); font-weight: 600; line-height: 1.1; margin-top: 10px;}
+        .names-hero .ampersand { font-size: 2rem; color: var(--accent); font-style: italic; display: block; margin: 5px 0; }
 
-        h1 .name-span {
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: var(--primary);
+        /* Image Frame */
+        .image-frame {
+            width: 100%; aspect-ratio: 4/5; border-radius: 20px; overflow: hidden;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.1); border: 4px solid var(--glass-border);
+            background: var(--input-bg); display: flex; align-items: center; justify-content: center;
         }
+        .image-frame img { width: 100%; height: 100%; object-fit: cover; }
 
-        h1 .ampersand {
-            font-size: 2rem;
-            font-style: italic;
-            color: var(--accent);
-            font-weight: 400;
-        }
+        /* Quote Section */
+        .quote-icon { font-size: 1.5rem; color: var(--accent); opacity: 0.6; margin-bottom: 15px; }
+        .quote-text { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; line-height: 1.5; font-style: italic; }
+        .quote-source { font-size: 0.75rem; color: var(--primary); font-weight: 700; margin-top: 15px; display: block; text-transform: uppercase; letter-spacing: 1px; }
 
-        p.sub-text {
-            color: var(--text-light);
-            font-size: 0.92rem;
-            line-height: 1.6;
-            margin-bottom: 22px;
-        }
-
-        /* Ucapan & Doa Card */
-        .ucapan-card {
-            background: var(--section-bg);
-            border-radius: 20px;
-            padding: 20px;
-            margin: 22px 0;
-            border: 1px solid var(--border-color);
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-            position: relative;
-        }
-
-        .ucapan-card i.quote-icon {
-            font-size: 1.5rem;
-            color: var(--accent);
-            opacity: 0.4;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .ucapan-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.12rem;
-            line-height: 1.5;
-            color: var(--text-dark);
-            font-style: italic;
-        }
-
-        .ucapan-source {
-            font-size: 0.75rem;
-            color: var(--accent);
-            font-weight: 700;
-            letter-spacing: 1.2px;
-            text-transform: uppercase;
-            margin-top: 10px;
-            display: block;
-        }
-
-        .interactive-details {
-            background: var(--section-bg);
-            border-radius: 22px;
-            padding: 22px 20px;
-            margin: 22px 0;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
-        }
-
+        /* Detail Rows */
         .info-row {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            text-align: left;
-            margin-bottom: 16px;
+            display: flex; align-items: center; gap: 15px; text-align: left; margin-bottom: 15px;
+            background: rgba(255,255,255,0.3); padding: 15px; border-radius: 18px;
+            border: 1px solid var(--glass-border);
         }
+        body[data-theme^="dark-"] .info-row { background: rgba(0,0,0,0.2); }
+        .info-icon { width: 45px; height: 45px; border-radius: 12px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.15); }
+        .info-text h4 { font-size: 0.75rem; text-transform: uppercase; color: var(--accent); letter-spacing: 1px; margin-bottom: 4px; }
+        .info-text p { font-size: 0.95rem; font-weight: 700; color: var(--text-dark); line-height: 1.3;}
+        .info-text span { font-size: 0.8rem; font-weight: 400; color: var(--text-light); }
 
-        .info-row:last-child {
-            margin-bottom: 0;
-        }
+        .map-wrapper { width: 100%; height: 200px; border-radius: 16px; overflow: hidden; border: 1px solid var(--glass-border); margin: 15px 0; }
+        .map-wrapper iframe { width: 100%; height: 100%; border: 0; }
+        .btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .btn-nav { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 12px; font-size: 0.8rem; font-weight: 700; text-decoration: none; transition: transform 0.2s; }
+        .btn-gmaps { background: rgba(26, 115, 232, 0.1); color: #1a73e8; border: 1px solid rgba(26, 115, 232, 0.2); }
+        .btn-waze { background: rgba(2, 136, 209, 0.1); color: #0288d1; border: 1px solid rgba(2, 136, 209, 0.2); }
+        body[data-theme^="dark-"] .btn-gmaps { color: #64b5f6; } body[data-theme^="dark-"] .btn-waze { color: #4fc3f7; }
 
-        .info-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 14px;
-            background: var(--primary);
-            color: var(--btn-text);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            flex-shrink: 0;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        }
+        .section-title { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--primary); font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 8px; }
 
-        .info-text h4 {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: var(--accent);
-            letter-spacing: 1.2px;
-            font-weight: 600;
-        }
+        /* Agenda Timeline */
+        .timeline { display: flex; flex-direction: column; gap: 15px; text-align: left; margin-bottom: 25px; }
+        .timeline-item { display: flex; gap: 15px; align-items: flex-start; }
+        .time-badge { font-size: 0.8rem; font-weight: 700; color: var(--accent); min-width: 75px; padding-top: 2px; }
+        .time-desc { font-size: 0.9rem; color: var(--text-dark); font-weight: 500; line-height: 1.4; }
 
-        .info-text p {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-top: 2px;
-        }
+        /* Guestbook list */
+        .wishes-list { max-height: 300px; overflow-y: auto; padding-right: 5px; display: flex; flex-direction: column; gap: 12px; text-align: left; }
+        .wishes-list::-webkit-scrollbar { width: 4px; } .wishes-list::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+        .wish-item { background: var(--input-bg); padding: 15px; border-radius: 16px; border: 1px solid var(--glass-border); }
+        .wish-name { font-size: 0.85rem; font-weight: 700; color: var(--primary); margin-bottom: 5px; }
+        .wish-msg { font-size: 0.85rem; color: var(--text-dark); line-height: 1.5; }
 
-        /* Map Embed Card */
-        .map-section {
-            background: var(--section-bg);
-            border-radius: 22px;
-            padding: 18px;
-            margin: 24px 0;
-            border: 1px solid var(--border-color);
-            text-align: left;
-        }
+        /* Buttons */
+        .btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px; border-radius: 16px; font-size: 0.95rem; font-weight: 700; text-decoration: none; border: none; cursor: pointer; transition: transform 0.2s; }
+        .btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+        .btn-secondary { background: var(--input-bg); color: var(--text-dark); border: 1px solid var(--glass-border); margin-top: 12px; }
+        .btn:active { transform: scale(0.98); }
 
-        .map-title {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--primary);
-            font-weight: 700;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .music-btn {
+            position: fixed; bottom: 90px; right: 20px; width: 50px; height: 50px; border-radius: 50%;
+            background: var(--glass-bg); backdrop-filter: blur(10px); color: var(--primary);
+            display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+            box-shadow: var(--glass-shadow); border: 1px solid var(--glass-border); z-index: 1000; cursor: pointer;
         }
+        .music-btn.playing { animation: spinDisc 4s linear infinite; background: var(--primary); color: #fff; }
+        @keyframes spinDisc { 100% { transform: rotate(360deg); } }
 
-        .map-frame-wrapper {
-            width: 100%;
-            height: 180px;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
-            border: 1px solid rgba(0,0,0,0.08);
-            margin-bottom: 14px;
+        .sticky-nav {
+            position: fixed; bottom: 0; left: 0; right: 0; width: 100%; max-width: 480px; margin: 0 auto;
+            background: var(--glass-bg); backdrop-filter: blur(20px); border-top: 1px solid var(--glass-border);
+            display: flex; justify-content: space-around; padding: 12px 0; z-index: 1000;
         }
+        .nav-item { color: var(--primary); text-decoration: none; font-size: 0.7rem; font-weight: 700; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 4px 10px; }
 
-        .map-frame-wrapper iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
+        /* Admin RSVP Items */
+        .admin-rsvp-item { background: var(--input-bg); padding: 12px; border-radius: 12px; border: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; text-align: left; margin-bottom: 10px; }
+        .admin-rsvp-info { flex: 1; }
+        .admin-rsvp-name { font-size: 0.85rem; font-weight: 700; color: var(--primary); }
+        .admin-rsvp-status { font-size: 0.7rem; padding: 3px 8px; border-radius: 6px; font-weight: 700; display: inline-block; margin: 4px 0; }
+        .status-hadir { background: rgba(40, 167, 69, 0.15); color: #28a745; }
+        .status-tidak { background: rgba(220, 53, 69, 0.15); color: #dc3545; }
+        .admin-rsvp-wish { font-size: 0.8rem; color: var(--text-dark); margin-top: 2px; }
+        .btn-del-single { background: rgba(220, 53, 69, 0.1); color: #dc3545; border: none; width: 34px; height: 34px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: 0.2s; }
+        .btn-del-single:hover { background: #dc3545; color: #fff; }
 
-        .map-nav-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
+        /* Admin Agenda Items */
+        .admin-agenda-row { display: flex; gap: 8px; align-items: center; margin-bottom: 10px; }
+        .btn-del-agenda { background: rgba(220, 53, 69, 0.1); color: #dc3545; border: none; width: 34px; height: 34px; border-radius: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: 0.2s; }
+        .btn-del-agenda:hover { background: #dc3545; color: #fff; }
 
-        .nav-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 10px 12px;
-            border-radius: 12px;
-            font-size: 0.82rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            text-align: center;
-        }
-
-        .nav-btn-gmaps {
-            background: #e8f0fe;
-            color: #1a73e8;
-            border: 1px solid rgba(26, 115, 232, 0.2);
-        }
-
-        .nav-btn-waze {
-            background: #e3f2fd;
-            color: #0288d1;
-            border: 1px solid rgba(2, 136, 209, 0.2);
-        }
-
-        .nav-btn:hover {
-            transform: translateY(-2px);
-            filter: brightness(0.96);
-        }
-
-        /* Agenda Tentatif Timeline */
-        .agenda-container {
-            margin: 24px 0;
-            text-align: left;
-            background: var(--section-bg);
-            padding: 18px;
-            border-radius: 20px;
-            border: 1px solid var(--border-color);
-        }
-
-        .agenda-title {
-            font-size: 0.78rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--primary);
-            font-weight: 700;
-            margin-bottom: 14px;
-            text-align: center;
-        }
-
-        .timeline-item {
-            display: flex;
-            gap: 14px;
-            margin-bottom: 12px;
-            align-items: flex-start;
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .timeline-time {
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--accent);
-            min-width: 65px;
-        }
-
-        .timeline-desc {
-            font-size: 0.88rem;
-            color: var(--text-dark);
-            font-weight: 500;
-        }
-
-        /* Dress Code Palette Display */
-        .palette-container {
-            margin: 22px 0;
-            background: var(--section-bg);
-            padding: 14px;
-            border-radius: 18px;
-            border: 1px solid var(--border-color);
-        }
-
-        .palette-title {
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 1.8px;
-            color: var(--text-light);
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .color-swatches {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .swatch-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .swatch {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            border: 2px solid var(--white);
-            box-shadow: 0 3px 6px rgba(0,0,0,0.08);
-            transition: transform 0.2s ease;
-        }
-
-        .swatch:hover {
-            transform: scale(1.2);
-        }
-
-        .swatch-label {
-            font-size: 0.65rem;
-            color: var(--text-light);
-        }
-
-        /* Admin Lock Icon Styles */
-        .admin-lock-box {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .admin-lock-btn {
-            background: rgba(124, 98, 159, 0.08);
-            color: var(--text-light);
-            border: none;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 0.75rem;
-            transition: all 0.3s ease;
-            opacity: 0.4;
-        }
-
-        .admin-lock-btn:hover {
-            background: var(--primary);
-            color: var(--white);
-            opacity: 1;
-            transform: scale(1.1);
-        }
-
-        /* Dynamic Countdown */
-        .countdown {
-            display: flex;
-            justify-content: space-around;
-            margin: 24px 0;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: var(--btn-text);
-            padding: 18px 12px;
-            border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-        }
-
-        .time-box {
-            text-align: center;
-            flex: 1;
-            position: relative;
-        }
-
-        .time-box:not(:last-child)::after {
-            content: ':';
-            position: absolute;
-            right: 0;
-            top: 20%;
-            opacity: 0.6;
-            font-size: 1.2rem;
-        }
-
-        .time-box span {
-            display: block;
-            font-size: 1.4rem;
-            font-weight: 700;
-            font-family: 'Cormorant Garamond', serif;
-            line-height: 1;
-        }
-
-        .time-box label {
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            opacity: 0.9;
-            letter-spacing: 1px;
-            margin-top: 4px;
-            display: block;
-            font-weight: 600;
-        }
-
-        .guestbook-section {
-            background: var(--section-bg);
-            border-radius: 22px;
-            padding: 20px;
-            margin: 24px 0;
-            text-align: left;
-            border: 1px solid var(--border-color);
-        }
-
-        .guestbook-title {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--primary);
-            font-weight: 700;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .wishes-list {
-            max-height: 200px;
-            overflow-y: auto;
-            margin-top: 12px;
-            padding-right: 4px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .wishes-list::-webkit-scrollbar {
-            width: 4px;
-        }
-        .wishes-list::-webkit-scrollbar-thumb {
-            background: var(--accent);
-            border-radius: 10px;
-        }
-
-        .wish-item {
-            background: var(--item-bg);
-            padding: 12px 14px;
-            border-radius: 14px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-        }
-
-        .wish-author {
-            font-size: 0.82rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 2px;
-        }
-
-        .wish-text {
-            font-size: 0.82rem;
-            color: var(--text-dark);
-            line-height: 1.4;
-        }
-
-        .btn-group {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 22px;
-        }
-
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            padding: 15px;
-            border-radius: 16px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: var(--btn-text);
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            background: var(--primary-dark);
-            color: var(--btn-text);
-            box-shadow: 0 12px 22px rgba(0, 0, 0, 0.3);
-        }
-
-        .btn-secondary {
-            background: var(--btn-secondary-bg);
-            color: var(--btn-secondary-text);
-            border: 1px solid var(--border-color);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-3px);
-            filter: brightness(1.08);
-            border-color: var(--primary);
-        }
-
-        /* Sticky Bottom Navigation Bar */
-        .sticky-bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            width: 100%;
-            max-width: 480px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-top: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 8px 0;
-            z-index: 999;
-            box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
-        }
-
-        .sticky-nav-item {
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 0.75rem;
-            font-weight: 700;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2px;
-            padding: 4px 10px;
-            border-radius: 20px;
-            transition: all 0.2s ease;
-        }
-
-        .sticky-nav-item i {
-            font-size: 1rem;
-        }
-
-        .sticky-nav-item:hover {
-            background: rgba(92, 107, 87, 0.1);
-        }
-
-        /* Modal Overlay & Card Container Styles */
+        /* Modals */
         .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            padding: 20px;
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(5px);
+            display: flex; justify-content: center; align-items: center; z-index: 2000; opacity: 0; visibility: hidden; transition: all 0.3s; padding: 15px;
         }
-
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
+        .modal-overlay.active { opacity: 1; visibility: visible; }
         .modal-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 28px;
-            padding: 28px 22px;
-            width: 100%;
-            max-width: 440px;
-            max-height: 85vh;
-            overflow-y: auto;
-            position: relative;
-            box-shadow: var(--shadow);
-            transform: translateY(20px);
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            color: var(--text-dark);
-            text-align: left;
+            background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 28px;
+            padding: 24px; width: 100%; max-width: 440px; max-height: 85vh; overflow-y: auto; position: relative; box-shadow: var(--glass-shadow);
+            transform: translateY(20px); transition: transform 0.3s; text-align: left;
         }
+        .modal-overlay.active .modal-card { transform: translateY(0); }
+        .modal-close { position: absolute; top: 15px; right: 15px; background: var(--input-bg); color: var(--text-dark); border: none; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 6px; color: var(--text-dark); }
+        .form-control { width: 100%; padding: 14px; border-radius: 14px; border: 1px solid var(--glass-border); background: var(--input-bg); color: var(--text-dark); font-family: inherit; font-size: 0.9rem; outline: none; }
+        .form-control:focus { border-color: var(--primary); }
+        textarea.form-control { resize: vertical; min-height: 80px; }
 
-        .modal-overlay.active .modal-card {
-            transform: translateY(0);
-        }
+        .theme-section-wrapper { background: rgba(124, 98, 159, 0.05); padding: 15px; border-radius: 16px; margin-bottom: 20px; }
+        .theme-badge-type { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.5px; padding: 4px 10px; border-radius: 12px; font-weight: 700; margin-bottom: 12px; display: inline-block; }
+        .theme-badge-light { background: #ebdfff; color: #5a417a; }
+        .theme-badge-dark { background: #1e1b2e; color: #facc15; }
+        .theme-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 5px; }
+        .theme-card-option { border: 2px solid transparent; border-radius: 20px; padding: 10px; text-align: center; cursor: pointer; transition: all 0.2s ease; background: var(--input-bg); display: flex; flex-direction: column; align-items: center; gap: 8px; }
+        .theme-card-option.selected { border-color: var(--primary); background: rgba(124, 98, 159, 0.1); }
+        .theme-preview-dots { display: flex; gap: 5px; }
+        .dot-color { width: 16px; height: 16px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.1); }
+        .theme-name { font-size: 0.65rem; font-weight: 700; color: var(--text-dark); line-height: 1.2; }
 
-        .modal-close {
-            position: absolute;
-            top: 18px;
-            right: 18px;
-            background: rgba(124, 98, 159, 0.12);
-            color: var(--text-dark);
-            border: none;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.2s ease;
-        }
-
-        .modal-close:hover {
-            background: var(--primary);
-            color: var(--white);
-        }
-
-        /* Form Controls and Fieldsets */
-        .form-group {
-            margin-bottom: 14px;
-            text-align: left;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 0.78rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 6px;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 14px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            background: var(--section-bg);
-            color: var(--text-dark);
-            font-family: inherit;
-            font-size: 0.9rem;
-            outline: none;
-            transition: border-color 0.2s ease;
-        }
-
-        .form-control:focus {
-            border-color: var(--primary);
-        }
-
-        /* Theme Grid Options */
-        .theme-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-        }
-
-        .theme-card-option {
-            border: 2px solid transparent;
-            border-radius: 14px;
-            padding: 8px 6px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            background: rgba(124, 98, 159, 0.05);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .theme-card-option:hover {
-            transform: translateY(-2px);
-        }
-
-        .theme-card-option.selected {
-            border-color: var(--primary);
-            background: var(--accent-light);
-        }
-
-        .theme-preview-dots {
-            display: flex;
-            gap: 4px;
-        }
-
-        .dot-color {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            border: 1px solid rgba(255,255,255,0.6);
-        }
-
-        .theme-name {
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            line-height: 1.2;
-        }
-
-        .theme-badge-type {
-            font-size: 0.6rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 2px 6px;
-            border-radius: 10px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            display: inline-block;
-        }
-
-        .theme-badge-light { background: #e2d5f0; color: #5a417a; }
-        .theme-badge-dark { background: #1e1b2e; color: #e5c158; }
-
-        /* Admin Agenda Inputs Alignment */
-        .agenda-input-row {
-            display: grid;
-            grid-template-columns: 1fr 2fr auto;
-            gap: 8px;
-            align-items: center;
-            margin-bottom: 8px;
-        }
-
-        .btn-add-agenda {
-            background: rgba(124, 98, 159, 0.12);
-            color: var(--primary);
-            border: none;
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 0.78rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            transition: all 0.2s ease;
-        }
-
-        .btn-add-agenda:hover {
-            background: var(--primary);
-            color: var(--white);
-        }
-
-        .btn-remove-agenda {
-            background: rgba(220, 53, 69, 0.1);
-            color: #dc3545;
-            border: none;
-            width: 34px;
-            height: 34px;
-            border-radius: 8px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-        }
-
-        .btn-remove-agenda:hover {
-            background: #dc3545;
-            color: #fff;
-        }
-
-        /* Admin RSVP List & Delete Styling */
-        .admin-rsvp-item {
-            background: var(--section-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 14px;
-            padding: 10px 12px;
-            margin-bottom: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .btn-delete-rsvp {
-            background: rgba(220, 53, 69, 0.12);
-            color: #dc3545;
-            border: none;
-            padding: 6px 10px;
-            border-radius: 8px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            flex-shrink: 0;
-        }
-
-        .btn-delete-rsvp:hover {
-            background: #dc3545;
-            color: #fff;
-        }
-
-        /* Toast notification */
+        .admin-btn { background: transparent; color: var(--text-light); border: none; display: block; margin: 30px auto 10px auto; opacity: 0.5; cursor: pointer; font-size: 1rem;}
+        
         .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(40px);
-            opacity: 0;
-            pointer-events: none;
-            background: var(--primary-dark);
-            color: var(--white);
-            padding: 12px 24px;
-            border-radius: 50px;
-            font-size: 0.88rem;
-            font-weight: 500;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 3000;
-            white-space: nowrap;
-            max-width: 90vw;
-            text-align: center;
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-20px); opacity: 0;
+            background: var(--primary-dark); color: #fff; padding: 12px 24px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; z-index: 4000; transition: all 0.3s; pointer-events: none;
+        }
+        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+        /* Intro Cover Screen (Enhanced Animations) */
+        .intro-cover {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--bg-color); z-index: 1500; display: flex;
+            justify-content: center; align-items: center;
+            transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s, filter 1s;
+        }
+        .intro-cover.hide {
+            transform: translateY(-100vh) scale(0.95); opacity: 0; pointer-events: none; filter: blur(10px);
+        }
+        .intro-card {
+            background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border); border-radius: 28px; padding: 50px 20px;
+            box-shadow: var(--glass-shadow); text-align: center; width: 90%; max-width: 400px;
+            position: relative; overflow: hidden;
+            animation: cardEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards, floatIntro 4s ease-in-out infinite alternate 1.2s;
+            opacity: 0; transform: translateY(30px) scale(0.95);
+        }
+        @keyframes cardEntrance { to { opacity: 1; transform: translateY(0) scale(1); } }
+        @keyframes floatIntro { 0% { transform: translateY(0); } 100% { transform: translateY(-12px); } }
+        
+        .intro-title {
+            font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;
+            color: var(--text-light); margin-bottom: 20px; font-weight: 700;
+            opacity: 0; animation: fadeInDown 0.8s ease forwards 0.4s;
+        }
+        .intro-names {
+            font-family: 'Cormorant Garamond', serif; font-size: 3.5rem;
+            color: var(--primary); line-height: 1.1; margin-bottom: 30px;
+            opacity: 0; animation: zoomIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.7s;
+        }
+        .intro-names .ampersand {
+            font-size: 2rem; color: var(--accent); font-style: italic; display: block; margin: 5px 0;
+            animation: pulseAmpersand 2s infinite alternate;
+        }
+        
+        .intro-event-type {
+            font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--text-dark); margin-bottom: 5px; opacity: 0; animation: fadeInDown 0.8s ease forwards 0.5s;
+        }
+        
+        .dan-separator {
+            font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--accent); font-style: italic; margin: 10px 0;
         }
 
-        .toast.show {
-            opacity: 1;
-            pointer-events: auto;
-            transform: translateX(-50%) translateY(0);
-        }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-15px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes zoomIn { from { opacity: 0; transform: scale(0.85); filter: blur(5px); } to { opacity: 1; transform: scale(1); filter: blur(0); } }
+        @keyframes pulseAmpersand { from { transform: scale(1); opacity: 0.8; } to { transform: scale(1.1); opacity: 1; color: var(--primary-dark); } }
 
-        /* Pulsing Heart Animation */
-        .heart {
-            color: #e74c3c;
-            display: inline-block;
-            animation: pulse 1.5s infinite;
+        .btn-buka {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff; padding: 14px 28px; border-radius: 50px; font-size: 1rem;
+            font-weight: 700; border: none; cursor: pointer; box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.2s, box-shadow 0.2s; display: inline-flex; align-items: center; gap: 10px;
+            opacity: 0; animation: fadeInUp 0.8s ease forwards 1s; position: relative; overflow: hidden;
+            margin-top: 20px;
         }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
+        .btn-buka::after {
+            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+            transform: skewX(-20deg); animation: shine 3s infinite 2s;
         }
+        @keyframes shine { 0% { left: -100%; } 20% { left: 200%; } 100% { left: 200%; } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .btn-buka:hover { transform: scale(1.05); box-shadow: 0 12px 25px rgba(0,0,0,0.25); }
     </style>
 </head>
 <body>
 
-    <!-- Audio Element untuk Muzik Latar -->
-    <audio id="bgAudio" loop preload="auto">
-        <source id="audioSource" src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
-        Penyemak imbas anda tidak menyokong elemen audio.
-    </audio>
-
-    <!-- Floating Music Toggle Button -->
-    <button class="music-floating-btn" id="musicToggleBtn" title="Main / Hentikan Muzik Latar">
-        <i class="fa-solid fa-music"></i>
-    </button>
-
-    <!-- Background decorative leaf icons -->
-    <i class="fa-solid fa-leaf bg-decoration bg-dec-1"></i>
-    <i class="fa-solid fa-seedling bg-decoration bg-dec-2"></i>
-
-    <div class="card-container" id="utama">
-
-        <!-- Enhanced Bismillah Section -->
-        <div class="bismillah-box">
-            <div class="bismillah-arabic">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
-            <div class="bismillah-translation">Dengan Nama Allah Yang Maha Pengasih Lagi Maha Penyayang</div>
+    <!-- Intro Cover Overlay -->
+    <div class="intro-cover" id="introCover">
+        <!-- Floating Blobs for Intro -->
+        <div class="blobs-container">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
         </div>
 
-        <!-- Top Badge -->
-        <div class="badge">
-            <i class="fa-solid fa-heart" style="font-size: 0.7rem;"></i>
-            Walimatul'urus
-        </div>
+        <div class="intro-card">
+            <div class="intro-title" id="introTajuk">Walimatul'urus</div>
+            
+            <!-- MAJLIS 1 INTRO -->
+            <div class="intro-event-type" id="introJenisMajlis">Majlis Akad Nikah</div>
+            <div class="intro-names">
+                <span id="introSubjek1">Naim</span>
+                <span class="ampersand" id="introSubjekAmpersand">&</span>
+                <span id="introSubjek2">Sarah</span>
+            </div>
 
-        <!-- Main Invitation Heading -->
-        <p class="sub-text">
-            Assalamu’alaikum Warahmatullahi Wabarakatuh & Salam Sejahtera,<br><br>
-            Kami, <b id="displayNamaHost" style="color: var(--primary);">Dato’ Razak & Datin Aminah</b> dengan penuh rasa kesyukuran menjemput Dato’ / Datin / Tuan / Puan / Saudara / Saudari ke Majlis Akad Nikah anakanda kami:
-        </p>
+            <!-- MAJLIS 2 INTRO (Sembunyi by default) -->
+            <div id="introMajlis2Block" style="display: none;">
+                <div class="dan-separator">Dan</div>
+                <div class="intro-event-type" id="introJenisMajlis2" style="display: block; opacity: 1; animation: none;">Majlis Aqiqah</div>
+                <div class="intro-names" style="font-size: 2.5rem; margin-bottom: 10px; opacity: 1; animation: none;">
+                    <span id="introMajlis2Subjek1">Anggun</span>
+                    <span class="ampersand" id="introMajlis2SubjekAmpersand" style="font-size: 1.5rem;">&</span>
+                    <span id="introMajlis2Subjek2"></span>
+                </div>
+            </div>
+
+            <button class="btn-buka" id="btnBukaKad">
+                <i class="fa-solid fa-envelope-open-text"></i> Buka Jemputan
+            </button>
+        </div>
+    </div>
+
+    <!-- Latar Belakang (Blobs) untuk Kad Utama -->
+    <div class="blobs-container">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-wrapper" id="utama">
         
-        <h1 class="serif-title">
-            <span id="displayNamaLelaki" class="name-span">Naim</span> 
-            <span class="ampersand">&</span> 
-            <span id="displayNamaPerempuan" class="name-span">Sarah</span>
-        </h1>
+        <!-- Panel 1: Pengenalan & Nama -->
+        <div class="glass-panel reveal" style="padding-top: 40px; padding-bottom: 40px;">
+            <div class="bismillah">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+            <div class="bismillah-sub">Dengan Nama Allah Yang Maha Pengasih Lagi Maha Penyayang</div>
+            
+            <div class="badge">
+                <i class="fa-solid fa-heart" style="font-size: 0.6rem;"></i>
+                <span id="displayTajukKad">Walimatul'urus</span>
+            </div>
 
-        <!-- Ucapan & Ayat Doa Section -->
-        <div class="ucapan-card">
-            <i class="fa-solid fa-quote-left quote-icon"></i>
-            <div class="ucapan-text">
+            <p class="invite-text" id="displayJemputan">
+                Assalamu’alaikum Warahmatullahi Wabarakatuh & Salam Sejahtera,<br><br>
+                <span id="displayKataGanti">Kami</span>, <b style="color: var(--primary);"><span id="displayNamaHost1">Dato’ Razak</span> <span id="displayHostAmpersand">&</span> <span id="displayNamaHost2">Datin Aminah</span></b> dengan penuh rasa kesyukuran menjemput Dato’ / Datin / Tuan / Puan / Saudara / Saudari ke:
+            </p>
+            
+            <!-- MAJLIS 1 KAD -->
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--text-dark); margin-bottom: 5px;" id="displayJenisMajlis">Majlis Akad Nikah</div>
+            <div class="names-hero" style="margin-top: 0;">
+                <span id="displaySubjek1">Naim</span>
+                <span class="ampersand" id="displaySubjekAmpersand">&</span>
+                <span id="displaySubjek2">Sarah</span>
+            </div>
+
+            <div class="image-frame" id="frameImg1" style="margin-top: 25px;">
+                <img id="displayImage" src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gambar Majlis 1" onerror="this.src='https://placehold.co/400x500/e2d5f0/5a417a?text=Gambar+Majlis'">
+            </div>
+
+            <!-- MAJLIS 2 KAD (Sembunyi by default) -->
+            <div id="displayMajlis2Block" style="display: none; margin-top: 25px; padding-top: 25px; border-top: 1px solid var(--glass-border);">
+                <div class="dan-separator">Dan</div>
+                <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--text-dark); margin-bottom: 5px;" id="displayJenisMajlis2">Majlis Aqiqah</div>
+                <div class="names-hero" style="margin-top: 0; font-size: 2.5rem;">
+                    <span id="displayMajlis2Subjek1">Anggun</span>
+                    <span class="ampersand" id="displayMajlis2SubjekAmpersand" style="font-size: 1.5rem;">&</span>
+                    <span id="displayMajlis2Subjek2"></span>
+                </div>
+                
+                <div class="image-frame" id="frameImg2" style="margin-top: 25px; display: none;">
+                    <img id="displayImage2" src="" alt="Gambar Majlis 2" onerror="this.src='https://placehold.co/400x500/e2d5f0/5a417a?text=Gambar+Majlis+2'">
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel 3: Mutiara Kata -->
+        <div class="glass-panel reveal">
+            <i class="fa-solid fa-quote-right quote-icon"></i>
+            <div class="quote-text" id="displayQuoteTeks">
                 "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang."
             </div>
-            <span class="ucapan-source">— Surah Ar-Rum : 21</span>
+            <span class="quote-source" id="displayQuoteSumber">— Surah Ar-Rum : 21</span>
         </div>
 
-        <!-- Details Card -->
-        <div class="interactive-details" id="butiran">
+        <!-- Panel 4: Butiran Majlis & Peta -->
+        <div class="glass-panel reveal" id="butiran">
+            <div class="section-title"><i class="fa-solid fa-calendar-day"></i> Maklumat Majlis</div>
+            
             <div class="info-row">
-                <div class="info-icon"><i class="fa-regular fa-calendar-check"></i></div>
+                <div class="info-icon"><i class="fa-regular fa-clock"></i></div>
                 <div class="info-text">
-                    <h4>Tarikh & Masa</h4>
-                    <p id="displayTarikhMasa">Sabtu, 24 Oktober 2026</p>
-                    <p id="displayMasaSub" style="font-size: 0.82rem; color: var(--text-light); font-weight: 400;">4:30 Petang - 7:00 Malam</p>
+                    <h4>Masa & Tarikh</h4>
+                    <p id="displayTarikh">Sabtu, 24 Oktober 2026</p>
+                    <span id="displayMasa">4:30 Petang - 7:00 Malam</span>
                 </div>
             </div>
 
             <div class="info-row">
                 <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
                 <div class="info-text">
-                    <h4>Lokasi Majlis</h4>
+                    <h4>Lokasi</h4>
                     <p id="displayLokasiNama">The Glasshouse Cafe</p>
-                    <p id="displayLokasiSub" style="font-size: 0.82rem; color: var(--text-light); font-weight: 400;">Eco Sanctuary, Selangor</p>
+                    <span id="displayLokasiSub">Eco Sanctuary, Selangor</span>
                 </div>
+            </div>
+
+            <div class="map-wrapper">
+                <iframe id="mapIframe" src="https://maps.google.com/maps?q=The%20Glasshouse%20Cafe%20Eco%20Sanctuary&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+            </div>
+            
+            <div class="btn-grid">
+                <a id="btnGmaps" href="#" target="_blank" class="btn-nav btn-gmaps"><i class="fa-solid fa-location-arrow"></i> Google Maps</a>
+                <a id="btnWaze" href="#" target="_blank" class="btn-nav btn-waze"><i class="fa-brands fa-waze"></i> Waze</a>
             </div>
         </div>
 
-        <!-- Peta Lokasi Section -->
-        <div class="map-section" id="lokasi">
-            <div class="map-title">
-                <i class="fa-solid fa-map-marked-alt" style="color: var(--accent);"></i>
-                Peta & Lokasi Majlis
+        <!-- Panel 5: Tentatif & Buku Ucapan -->
+        <div class="glass-panel reveal" id="ucapan">
+            <div class="section-title"><i class="fa-solid fa-list-check"></i> Acara</div>
+            <div class="timeline" id="agendaList">
+                <!-- Dijana oleh Javascript -->
             </div>
-            <div class="map-frame-wrapper">
-                <iframe 
-                    id="mapIframe"
-                    title="Lokasi Majlis"
-                    src="https://maps.google.com/maps?q=The%20Glasshouse%20Eco%20Sanctuary&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-                    allowfullscreen="" 
-                    loading="lazy">
-                </iframe>
-            </div>
-            <div class="map-nav-grid">
-                <a id="btnGmaps" href="https://maps.google.com/?q=The+Glasshouse+Cafe+Eco+Sanctuary" target="_blank" class="nav-btn nav-btn-gmaps">
-                    <i class="fa-solid fa-location-arrow"></i> Google Maps
-                </a>
-                <a id="btnWaze" href="https://waze.com/ul?q=The+Glasshouse+Eco+Sanctuary" target="_blank" class="nav-btn nav-btn-waze">
-                    <i class="fa-brands fa-waze"></i> Waze Navigation
-                </a>
-            </div>
-        </div>
 
-        <!-- Tentatif Atur Cara -->
-        <div class="agenda-container">
-            <div class="agenda-title"><i class="fa-solid fa-clock-rotate-left"></i> Atur Cara Majlis</div>
-            <div id="agendaList">
-                <div class="timeline-item">
-                    <div class="timeline-time">4:15 PM</div>
-                    <div class="timeline-desc">Ketibaan Tetamu Jemputan</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">4:45 PM</div>
-                    <div class="timeline-desc">Upacara Akad Nikah</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">5:30 PM</div>
-                    <div class="timeline-desc">Sesi Jamuan Petang & Fotografi</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-time">7:00 PM</div>
-                    <div class="timeline-desc">Majlis Bersurai</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Dress Code Palette -->
-        <div class="palette-container" id="paletteSection" style="display: none;">
-            <div class="palette-title">Tema Pakaian: Pastel Lilac & Neutrals</div>
-            <div class="color-swatches">
-                <div class="swatch-wrapper">
-                    <div class="swatch" style="background: #7c629f;" title="Deep Lavender"></div>
-                    <span class="swatch-label">Lavender</span>
-                </div>
-                <div class="swatch-wrapper">
-                    <div class="swatch" style="background: #a879c1;" title="Lilac"></div>
-                    <span class="swatch-label">Lilac</span>
-                </div>
-                <div class="swatch-wrapper">
-                    <div class="swatch" style="background: #e2d5f0;" title="Soft Violet"></div>
-                    <span class="swatch-label">Soft Violet</span>
-                </div>
-                <div class="swatch-wrapper">
-                    <div class="swatch" style="background: #ffffff;" title="Cream White"></div>
-                    <span class="swatch-label">Cream</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Dynamic Countdown -->
-        <div class="countdown">
-            <div class="time-box">
-                <span id="days">00</span>
-                <label>Hari</label>
-            </div>
-            <div class="time-box">
-                <span id="hours">00</span>
-                <label>Jam</label>
-            </div>
-            <div class="time-box">
-                <span id="minutes">00</span>
-                <label>Minit</label>
-            </div>
-            <div class="time-box">
-                <span id="seconds">00</span>
-                <label>Saat</label>
-            </div>
-        </div>
-
-        <!-- Ucapan & Doa Tetamu (Interactive Guestbook Wall) -->
-        <div class="guestbook-section" id="ucapan-wall">
-            <div class="guestbook-title">
-                <i class="fa-solid fa-comments" style="color: var(--accent);"></i>
-                Buku Ucapan & Doa Restu
-            </div>
+            <div class="section-title" style="margin-top: 30px;"><i class="fa-solid fa-comments"></i> Buku Ucapan</div>
             <div class="wishes-list" id="wishesList">
-                <div class="wish-item">
-                    <div class="wish-author">Ahmad & Keluarga</div>
-                    <div class="wish-text">Selamat pengantin baru Naim & Sarah! Semoga mahligai yang dibina sentiasa dilimpahi keberkatan dan kebahagiaan hingga ke jannah.</div>
-                </div>
-                <div class="wish-item">
-                    <div class="wish-author">Siti Nurhaliza</div>
-                    <div class="wish-text">Tahniah buat kedua rakan! Semoga dipermudahkan segala urusan majlis akad nikah.</div>
-                </div>
+                <!-- Dijana oleh Javascript -->
             </div>
         </div>
 
-        <!-- Action Buttons -->
-        <div class="btn-group">
-            <button class="btn btn-primary" id="openRsvpBtn">
-                <i class="fa-solid fa-envelope-open-text"></i> Sahkan Kehadiran (RSVP)
-            </button>
-            <button class="btn btn-secondary" id="addCalendarBtn">
-                <i class="fa-regular fa-calendar-plus"></i> Simpan Ke Kalendar
-            </button>
-        </div>
-
-        <p style="font-size: 0.78rem; color: var(--text-light); margin-top: 24px;">
-            Diraikan dengan penuh kasih sayang <span class="heart"><i class="fa-solid fa-heart"></i></span>
-        </p>
-
-        <!-- Admin Lock / Log Masuk Host Section -->
-        <div class="admin-lock-box">
-            <button class="admin-lock-btn" id="openAdminBtn" title="Log Masuk Host / Kemaskini Maklumat">
-                <i class="fa-solid fa-lock"></i>
-            </button>
+        <div class="glass-panel reveal" style="background: transparent; border: none; box-shadow: none; padding: 0;">
+            <button class="btn btn-primary" id="openRsvpBtn"><i class="fa-solid fa-envelope-open-text"></i> Sahkan Kehadiran (RSVP)</button>
+            
+            <!-- Butang Login Admin -->
+            <button class="admin-btn" id="openPasswordBtn" title="Log Masuk Host"><i class="fa-solid fa-lock"></i></button>
         </div>
     </div>
 
-    <!-- Sticky Bottom Nav Bar -->
-    <div class="sticky-bottom-nav" id="stickyNavSection" style="display: none;">
-        <a href="#utama" class="sticky-nav-item">
-            <i class="fa-solid fa-house"></i>
-            <span>Utama</span>
-        </a>
-        <a href="#lokasi" class="sticky-nav-item">
-            <i class="fa-solid fa-map-location-dot"></i>
-            <span>Peta</span>
-        </a>
-        <a href="#ucapan-wall" class="sticky-nav-item">
-            <i class="fa-solid fa-pen-fancy"></i>
-            <span>Ucapan</span>
-        </a>
-        <a href="javascript:void(0)" class="sticky-nav-item" id="navRsvp">
-            <i class="fa-solid fa-check-double"></i>
-            <span>RSVP</span>
-        </a>
+    <!-- Floating Music Button -->
+    <button id="musicBtn" class="music-btn" style="display: none;"><i class="fa-solid fa-music"></i></button>
+
+    <!-- Sticky Bottom Navigation -->
+    <div class="sticky-nav">
+        <a href="#utama" class="nav-item"><i class="fa-solid fa-house"></i> Utama</a>
+        <a href="#butiran" class="nav-item"><i class="fa-solid fa-map-location-dot"></i> Peta</a>
+        <a href="#ucapan" class="nav-item"><i class="fa-solid fa-pen-fancy"></i> Ucapan</a>
+        <a href="javascript:void(0)" class="nav-item" id="navRsvp"><i class="fa-solid fa-check-double"></i> RSVP</a>
     </div>
 
-    <!-- Modal Kata Laluan Pentadbir (Custom Password Dialog) -->
-    <div class="modal-overlay" id="adminAuthModal">
-        <div class="modal-card" style="max-width: 360px;">
-            <button class="modal-close" id="closeAdminAuthBtn"><i class="fa-solid fa-xmark"></i></button>
-            <h3 class="serif-title" style="font-size: 1.4rem; color: var(--primary); margin-bottom: 6px;">
-                <i class="fa-solid fa-lock" style="font-size: 1.1rem; margin-right: 6px;"></i> Log Masuk Host
-            </h3>
-            <p style="font-size: 0.82rem; color: var(--text-light); margin-bottom: 16px;">Sila masukkan kata laluan untuk mengemas kini butiran kad.</p>
-
-            <form id="adminAuthForm">
-                <div class="form-group">
-                    <label for="adminAuthPassword">Kata Laluan</label>
-                    <input type="password" id="adminAuthPassword" class="form-control" placeholder="Masukkan kata laluan..." required>
-                </div>
-                <div id="adminAuthError" style="display: none; color: #dc3545; font-size: 0.8rem; font-weight: 600; margin-bottom: 12px; text-align: center;">
-                    <i class="fa-solid fa-circle-exclamation"></i> Kata laluan salah! Sila cuba lagi.
-                </div>
-                <button type="submit" class="btn btn-primary" style="margin-top: 4px;">
-                    <i class="fa-solid fa-key"></i> Log Masuk
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Modal RSVP Dialog -->
+    <!-- RSVP Form Modal -->
     <div class="modal-overlay" id="rsvpModal">
         <div class="modal-card">
             <button class="modal-close" id="closeRsvpBtn"><i class="fa-solid fa-xmark"></i></button>
-            <h3 class="serif-title" style="font-size: 1.6rem; color: var(--primary); margin-bottom: 6px;">
-                <i class="fa-solid fa-envelope-open-text" style="font-size: 1.3rem; margin-right: 6px;"></i> Sahkan Kehadiran (RSVP)
-            </h3>
-            <p style="font-size: 0.82rem; color: var(--text-light); margin-bottom: 18px;">Sila lengkapkan maklumat di bawah sebelum 10 Oktober 2026.</p>
-
+            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--primary); margin-bottom: 15px;">Kehadiran (RSVP)</h3>
+            
             <form id="rsvpForm">
-                <div class="form-group">
-                    <label for="nama">Nama Penuh</label>
-                    <input type="text" id="nama" class="form-control" placeholder="Contoh: Ahmad Albab" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="kehadiran">Status Kehadiran</label>
-                    <select id="kehadiran" class="form-control" required>
+                <div class="form-group"><label>Nama Penuh</label><input type="text" id="namaRsvp" class="form-control" required></div>
+                <div class="form-group"><label>Kehadiran</label>
+                    <select id="hadirRsvp" class="form-control" required>
                         <option value="Hadir">Hadir</option>
                         <option value="Tidak Hadir">Tidak Dapat Hadir</option>
-                        <option value="Belum Pasti">Belum Pasti</option>
                     </select>
                 </div>
-
-                <div class="form-group">
-                    <label for="bilangan">Bilangan Tetamu</label>
-                    <select id="bilangan" class="form-control" required>
-                        <option value="1">1 Orang</option>
-                        <option value="2">2 Orang</option>
-                        <option value="3">3 Orang</option>
-                        <option value="4">4 Orang</option>
-                    </select>
+                <div class="form-group"><label>Bilangan Tetamu (Pax)</label>
+                    <select id="paxRsvp" class="form-control"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select>
                 </div>
-
-                <div class="form-group">
-                    <label for="ucapan">Ucapan & Doa Restu (Opsional)</label>
-                    <textarea id="ucapan" class="form-control" rows="3" placeholder="Tuliskan ucapan buat pengantin..."></textarea>
-                </div>
-
-                <div id="rsvpSubmitStatus" style="display: none; font-size: 0.85rem; text-align: center; margin-top: 10px; color: var(--primary); font-weight: 600;">
-                    <i class="fa-solid fa-spinner fa-spin"></i> Menghantar RSVP...
-                </div>
-
-                <button type="submit" class="btn btn-primary" id="btnSubmitRsvp" style="margin-top: 8px;">
-                    <i class="fa-solid fa-paper-plane"></i> Hantar RSVP
-                </button>
+                <div class="form-group"><label>Ucapan Ringkas</label><textarea id="ucapanRsvp" class="form-control" placeholder="Tahniah..."></textarea></div>
+                <button type="submit" class="btn btn-primary">Hantar RSVP</button>
             </form>
         </div>
     </div>
 
-    <!-- Modal Admin / Kemaskini Maklumat Host -->
+    <!-- Password Lock Modal -->
+    <div class="modal-overlay" id="passwordModal" style="z-index: 2500;">
+        <div class="modal-card" style="max-width: 320px; text-align: center;">
+            <button class="modal-close" id="closePasswordBtn"><i class="fa-solid fa-xmark"></i></button>
+            <h3 style="color: var(--primary); margin-bottom: 15px; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem;"><i class="fa-solid fa-lock" style="font-size:1.2rem; margin-right:5px;"></i> Akses Pentadbir</h3>
+            <p style="font-size: 0.8rem; color: var(--text-light); margin-bottom: 15px;">Sila masukkan kata laluan untuk mengemaskini tetapan kad ini.</p>
+            <div class="form-group">
+                <input type="password" id="adminPassword" class="form-control" placeholder="Kata Laluan" style="text-align: center;">
+                <div id="passwordError" style="color: #dc3545; font-size: 0.8rem; margin-top: 8px; display: none; font-weight: 600;">Kata laluan salah! Sila cuba lagi.</div>
+            </div>
+            <button id="btnSubmitPassword" class="btn btn-primary">Log Masuk</button>
+        </div>
+    </div>
+
+    <!-- Admin Settings Modal -->
     <div class="modal-overlay" id="adminModal">
         <div class="modal-card">
             <button class="modal-close" id="closeAdminBtn"><i class="fa-solid fa-xmark"></i></button>
-            <h3 class="serif-title" style="font-size: 1.6rem; color: var(--primary); margin-bottom: 6px;">
-                <i class="fa-solid fa-user-gear" style="font-size: 1.3rem; margin-right: 6px;"></i> Kemaskini Maklumat Host
-            </h3>
-            <p style="font-size: 0.82rem; color: var(--text-light); margin-bottom: 18px;">Kemaskini butiran majlis & pilih tema warna kad di bawah.</p>
-
+            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--primary); margin-bottom: 15px;">Kemaskini Maklumat Host</h3>
+            
             <form id="adminForm">
-                <div class="form-group" style="background: rgba(124, 98, 159, 0.06); padding: 12px; border-radius: 16px; margin-bottom: 18px;">
-                    <label style="font-weight: 700; color: var(--primary); margin-bottom: 8px; display: block;">
-                        <i class="fa-solid fa-eye" style="margin-right: 4px;"></i> Tetapan Paparan Elemen
-                    </label>
-                    <div style="display: flex; flex-direction: column; gap: 8px;">
-                        <label style="font-size: 0.82rem; display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--text-dark);">
-                            <input type="checkbox" id="toggleDressCode" style="accent-color: var(--primary); width: 16px; height: 16px;">
-                            Paparkan Tema Pakaian (Dress Code)
-                        </label>
-                        <label style="font-size: 0.82rem; display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--text-dark);">
-                            <input type="checkbox" id="toggleStickyNav" style="accent-color: var(--primary); width: 16px; height: 16px;">
-                            Paparkan Butang Apungan Navigasi (Sticky Bottom Nav)
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Music Audio URL Config Input -->
-                <div class="form-group" style="background: rgba(124, 98, 159, 0.06); padding: 12px; border-radius: 16px; margin-bottom: 18px;">
-                    <label for="inputAudioUrl" style="font-weight: 700; color: var(--primary); margin-bottom: 6px; display: block;">
-                        <i class="fa-solid fa-music" style="margin-right: 4px;"></i> Pautan Fail Lagu Latar (URL MP3)
-                    </label>
-                    <input type="url" id="inputAudioUrl" class="form-control" value="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" placeholder="https://example.com/lagu.mp3">
-                    <p style="font-size: 0.7rem; color: var(--text-light); margin-top: 6px; line-height: 1.3;">
-                        *Masukkan pautan langsung fail audio (.mp3). Sesuai disimpan pada Pixabay, Catbox, Dropbox (direct link), atau pelayan peribadi.
-                    </p>
-                </div>
-
-                <!-- Theme Selector Section (6 Variations: 3 Light Pastel, 3 Dark Vibrant) -->
-                <div class="form-group" style="background: rgba(124, 98, 159, 0.06); padding: 12px; border-radius: 16px; margin-bottom: 18px;">
-                    <label style="font-weight: 700; color: var(--primary); margin-bottom: 4px;">
-                        <i class="fa-solid fa-palette" style="margin-right: 4px;"></i> Pilih Tema & Warna Kad (6 Pilihan)
-                    </label>
-                    <p style="font-size: 0.72rem; color: var(--text-light); margin-bottom: 10px;">3 Tema Cerah (Pastel) & 3 Tema Gelap (Warna-warni Mewah)</p>
+                <!-- Theme Selection -->
+                <div class="theme-section-wrapper">
+                    <label style="font-size: 0.85rem; font-weight: 700; color: var(--primary); margin-bottom: 5px; display: block;"><i class="fa-solid fa-palette"></i> Pilih Tema & Warna Kad (6 Pilihan)</label>
+                    <p style="font-size: 0.75rem; color: var(--text-light); margin-bottom: 12px;">3 Tema Cerah (Pastel) & 3 Tema Gelap (Warna-warni Mewah)</p>
                     
                     <div class="theme-badge-type theme-badge-light">3 Tema Cerah (Pastel)</div>
-                    <div class="theme-grid" style="margin-bottom: 12px;">
-                        <div class="theme-card-option selected" data-theme-id="pastel-lavender">
+                    <div class="theme-grid">
+                        <div class="theme-card-option selected" data-theme="pastel-lavender">
                             <div class="theme-preview-dots">
                                 <div class="dot-color" style="background: #f6f2f9;"></div>
                                 <div class="dot-color" style="background: #7c629f;"></div>
@@ -1450,7 +522,7 @@
                             </div>
                             <span class="theme-name">Pastel Lavender</span>
                         </div>
-                        <div class="theme-card-option" data-theme-id="pastel-sage">
+                        <div class="theme-card-option" data-theme="pastel-sage">
                             <div class="theme-preview-dots">
                                 <div class="dot-color" style="background: #f2f6f3;"></div>
                                 <div class="dot-color" style="background: #5c7059;"></div>
@@ -1458,9 +530,9 @@
                             </div>
                             <span class="theme-name">Pastel Sage</span>
                         </div>
-                        <div class="theme-card-option" data-theme-id="pastel-blush">
+                        <div class="theme-card-option" data-theme="pastel-blush">
                             <div class="theme-preview-dots">
-                                <div class="dot-color" style="background: #faf2f4;"></div>
+                                <div class="dot-color" style="background: #fdf6f7;"></div>
                                 <div class="dot-color" style="background: #a26573;"></div>
                                 <div class="dot-color" style="background: #c88b98;"></div>
                             </div>
@@ -1468,803 +540,622 @@
                         </div>
                     </div>
 
-                    <div class="theme-badge-type theme-badge-dark">3 Tema Gelap (Warna-Warni Mewah)</div>
+                    <div class="theme-badge-type theme-badge-dark" style="margin-top: 15px;">3 Tema Gelap (Warna-warni Mewah)</div>
                     <div class="theme-grid">
-                        <div class="theme-card-option" data-theme-id="dark-emerald">
+                        <div class="theme-card-option" data-theme="dark-emerald">
                             <div class="theme-preview-dots">
-                                <div class="dot-color" style="background: #0c1615;"></div>
-                                <div class="dot-color" style="background: #e5c158;"></div>
-                                <div class="dot-color" style="background: #44bba4;"></div>
+                                <div class="dot-color" style="background: #0b1814;"></div>
+                                <div class="dot-color" style="background: #f3cf7a;"></div>
+                                <div class="dot-color" style="background: #52d6b8;"></div>
                             </div>
                             <span class="theme-name">Emerald Gold</span>
                         </div>
-                        <div class="theme-card-option" data-theme-id="dark-sapphire">
+                        <div class="theme-card-option" data-theme="dark-sapphire">
                             <div class="theme-preview-dots">
-                                <div class="dot-color" style="background: #0e1322;"></div>
-                                <div class="dot-color" style="background: #f06292;"></div>
-                                <div class="dot-color" style="background: #64b5f6;"></div>
+                                <div class="dot-color" style="background: #080c17;"></div>
+                                <div class="dot-color" style="background: #f8a5c2;"></div>
+                                <div class="dot-color" style="background: #74b9ff;"></div>
                             </div>
                             <span class="theme-name">Sapphire Pink</span>
                         </div>
-                        <div class="theme-card-option" data-theme-id="dark-violet">
+                        <div class="theme-card-option" data-theme="dark-violet">
                             <div class="theme-preview-dots">
-                                <div class="dot-color" style="background: #120e1b;"></div>
-                                <div class="dot-color" style="background: #b388ff;"></div>
-                                <div class="dot-color" style="background: #00e676;"></div>
+                                <div class="dot-color" style="background: #0e0a1a;"></div>
+                                <div class="dot-color" style="background: #d8b4fe;"></div>
+                                <div class="dot-color" style="background: #facc15;"></div>
                             </div>
                             <span class="theme-name">Cyber Violet</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="inputNamaHost">Nama Ibu Bapa / Host</label>
-                    <input type="text" id="inputNamaHost" class="form-control" value="Dato’ Razak & Datin Aminah" required>
+                <div class="form-group"><label>Tajuk Lencana Atas</label><input type="text" id="inTajuk" class="form-control" value="Walimatul'urus"></div>
+                <div class="form-group"><label>Kata Ganti Diri (Cth: Kami, / Saya,)</label><input type="text" id="inKataGanti" class="form-control" value="Kami,"></div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div class="form-group" style="display: flex; flex-direction: column; justify-content: flex-end;">
+                        <label>Nama 1<br><span style="font-weight:400; font-size:0.7rem;">(Host Utama)</span></label>
+                        <input type="text" id="inHost1" class="form-control" value="Dato’ Razak">
+                    </div>
+                    <div class="form-group" style="display: flex; flex-direction: column; justify-content: flex-end;">
+                        <label>Nama 2<br><span style="font-weight:400; font-size:0.7rem;">(Jika ada)</span></label>
+                        <input type="text" id="inHost2" class="form-control" value="Datin Aminah">
+                    </div>
                 </div>
                 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                    <div class="form-group">
-                        <label for="inputLelaki">Pengantin Lelaki</label>
-                        <input type="text" id="inputLelaki" class="form-control" value="Naim" required>
+                <!-- CHECKBOX DWI-MAJLIS -->
+                <div class="form-group" style="background: rgba(124, 98, 159, 0.1); padding: 12px; border-radius: 12px; margin: 20px 0;">
+                    <label style="display: flex; align-items: center; gap: 10px; margin: 0; cursor: pointer; color: var(--primary); font-size: 0.85rem;">
+                        <input type="checkbox" id="inEnableMajlis2" style="width: 18px; height: 18px; accent-color: var(--primary);">
+                        Gabungkan 2 Majlis Dalam 1 Jemputan (Contoh: Kahwin & Aqiqah)
+                    </label>
+                </div>
+
+                <!-- CHECKBOX MENU NAVIGASI -->
+                <div class="form-group" style="background: rgba(124, 98, 159, 0.1); padding: 12px; border-radius: 12px; margin: 20px 0;">
+                    <label style="display: flex; align-items: center; gap: 10px; margin: 0; cursor: pointer; color: var(--primary); font-size: 0.85rem;">
+                        <input type="checkbox" id="inEnableNav" style="width: 18px; height: 18px; accent-color: var(--primary);" checked>
+                        Paparkan Menu Navigasi Bawah (Utama, Peta, Ucapan, RSVP)
+                    </label>
+                </div>
+
+                <!-- BOX MAJLIS 1 -->
+                <div id="boxMajlis1" style="border: 2px solid var(--primary); padding: 20px 15px 5px 15px; border-radius: 14px; margin-bottom: 20px; position: relative;">
+                    <span id="labelMajlis1" style="position: absolute; top: -12px; left: 15px; background: var(--input-bg); padding: 0 10px; color: var(--primary); font-weight: 700; font-size: 0.85rem; display: none;">Majlis 1</span>
+                    
+                    <div class="form-group"><label>Jenis Majlis</label><input type="text" id="inMajlis" class="form-control" value="Majlis Akad Nikah"></div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div class="form-group" style="display: flex; flex-direction: column; justify-content: flex-end;">
+                            <label>Nama 1<br><span style="font-weight:400; font-size:0.7rem;">(Pengantin/Anak)</span></label>
+                            <input type="text" id="inSubjek1" class="form-control" value="Naim">
+                        </div>
+                        <div class="form-group" style="display: flex; flex-direction: column; justify-content: flex-end;">
+                            <label>Nama 2<br><span style="font-weight:400; font-size:0.7rem;">(Pengantin/Menantu)</span></label>
+                            <input type="text" id="inSubjek2" class="form-control" value="Sarah">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="inputPerempuan">Pengantin Perempuan</label>
-                        <input type="text" id="inputPerempuan" class="form-control" value="Sarah" required>
+                    <div class="form-group"><label>Pautan URL Gambar (Bingkai)</label><input type="url" id="inImej" class="form-control" placeholder="https://..."></div>
+                </div>
+
+                <!-- BOX MAJLIS 2 (Dinamik) -->
+                <div id="boxMajlis2" style="border: 2px solid #dc3545; padding: 20px 15px 5px 15px; border-radius: 14px; margin-bottom: 20px; position: relative; display: none;">
+                    <span style="position: absolute; top: -12px; left: 15px; background: var(--input-bg); padding: 0 10px; color: #dc3545; font-weight: 700; font-size: 0.85rem;">Majlis 2</span>
+                    
+                    <div class="form-group"><label>Jenis Majlis</label><input type="text" id="inMajlis2" class="form-control" placeholder="Cth: Majlis Aqiqah"></div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div class="form-group" style="display: flex; flex-direction: column; justify-content: flex-end;">
+                            <label>Nama 1<br><span style="font-weight:400; font-size:0.7rem;">(Pengantin/Anak)</span></label>
+                            <input type="text" id="inMajlis2Subjek1" class="form-control" placeholder="Cth: Anggun">
+                        </div>
+                        <div class="form-group" style="display: flex; flex-direction: column; justify-content: flex-end;">
+                            <label>Nama 2<br><span style="font-weight:400; font-size:0.7rem;">(Pengantin/Menantu)</span></label>
+                            <input type="text" id="inMajlis2Subjek2" class="form-control" placeholder="Kosongkan jika tiada">
+                        </div>
+                    </div>
+                    <div class="form-group"><label>Pautan URL Gambar Kedua (Jika Ada)</label><input type="url" id="inImej2" class="form-control" placeholder="https://..."></div>
+                </div>
+                
+                <div class="form-group"><label>Mutiara Kata / Ayat Jemputan</label><textarea id="inQuoteTeks" class="form-control">"Dan di antara tanda-tanda kekuasaan-Nya..."</textarea></div>
+                <div class="form-group"><label>Sumber Ayat / Kata</label><input type="text" id="inQuoteSumber" class="form-control" value="— Surah Ar-Rum : 21"></div>
+
+                <div class="form-group"><label>Pautan Muzik Latar (MP3 URL)</label><input type="url" id="inAudio" class="form-control" placeholder="https://...mp3"></div>
+
+                <div style="display: flex; gap: 10px;">
+                    <div class="form-group" style="flex:1;"><label>Tarikh Teks</label><input type="text" id="inTarikh" class="form-control" value="Sabtu, 24 Oktober 2026"></div>
+                    <div class="form-group" style="flex:1;"><label>Masa Teks</label><input type="text" id="inMasa" class="form-control" value="4:30 Petang - 7:00 Malam"></div>
+                </div>
+                
+                <div class="form-group"><label>Nama Lokasi / Tempat</label><input type="text" id="inLokasiNama" class="form-control" value="The Glasshouse Cafe"></div>
+                <div class="form-group"><label>Kawasan / Negeri</label><input type="text" id="inLokasiSub" class="form-control" value="Eco Sanctuary, Selangor"></div>
+
+                <!-- Kemaskini Atur Cara -->
+                <div class="form-group" style="background: rgba(124, 98, 159, 0.1); padding: 15px; border-radius: 14px; margin-top: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <label style="color: var(--primary); margin: 0; font-weight: 700;"><i class="fa-solid fa-list-check"></i> Atur Cara Majlis</label>
+                        <button type="button" id="btnAddAgenda" class="btn btn-primary" style="padding: 6px 12px; font-size: 0.75rem; width: auto; margin: 0; border-radius: 10px;"><i class="fa-solid fa-plus"></i> Tambah</button>
+                    </div>
+                    <div id="adminAgendaContainer">
+                        <!-- Dijana oleh JS -->
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="inputTarikh">Tarikh Majlis</label>
-                    <input type="text" id="inputTarikh" class="form-control" value="Sabtu, 24 Oktober 2026" required>
+                <!-- Urus RSVP Button -->
+                <div class="form-group" style="background: rgba(124, 98, 159, 0.1); padding: 15px; border-radius: 14px; margin-top: 20px;">
+                    <label style="color: var(--primary); margin-bottom: 10px; font-weight: 700;">Pengurusan RSVP & Ucapan</label>
+                    <button type="button" class="btn" id="btnOpenManageRsvp" style="background: var(--input-bg); color: var(--text-dark); padding: 12px; border: 1px solid var(--glass-border);"><i class="fa-solid fa-users-gear"></i> Urus Senarai RSVP</button>
                 </div>
 
-                <div class="form-group">
-                    <label for="inputMasa">Masa Majlis</label>
-                    <input type="text" id="inputMasa" class="form-control" value="4:30 Petang - 7:00 Malam" required>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+                    <span style="font-size: 0.75rem; font-weight: 700; color: var(--primary);">Versi v2.0</span>
+                    <button type="submit" class="btn btn-primary" style="width: auto; padding: 12px 24px;">Simpan Tetapan</button>
                 </div>
-
-                <div class="form-group">
-                    <label for="inputLokasi">Nama Lokasi</label>
-                    <input type="text" id="inputLokasi" class="form-control" value="The Glasshouse Cafe" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="inputLokasiSub">Alamat / Kawasan</label>
-                    <input type="text" id="inputLokasiSub" class="form-control" value="Eco Sanctuary, Selangor" required>
-                </div>
-
-                <!-- Kemaskini Atur Cara / Tentatif Majlis (Dynamic Rows) -->
-                <div class="form-group" style="margin-top: 18px; border-top: 1px dashed rgba(124, 98, 159, 0.3); padding-top: 14px;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                        <label style="font-weight: 700; color: var(--primary); margin: 0;">
-                            <i class="fa-solid fa-clock" style="margin-right: 4px;"></i> Kemaskini Atur Cara Majlis
-                        </label>
-                        <button type="button" id="addAgendaRowBtn" class="btn-add-agenda">
-                            <i class="fa-solid fa-plus"></i> Tambah Acara
-                        </button>
-                    </div>
-                    <div id="adminAgendaRowsContainer">
-                        <!-- Dynamic rows generated by JavaScript -->
-                    </div>
-                </div>
-
-                <!-- Pengurusan & Padam RSVP / Ucapan -->
-                <div class="form-group" style="margin-top: 18px; border-top: 1px dashed rgba(124, 98, 159, 0.3); padding-top: 14px;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                        <label style="font-weight: 700; color: var(--primary); margin: 0;">
-                            <i class="fa-solid fa-users-slash" style="margin-right: 4px;"></i> Pengurusan & Padam RSVP / Ucapan
-                        </label>
-                        <button type="button" id="btnClearAllRsvp" class="btn-delete-rsvp" style="padding: 4px 8px; font-size: 0.72rem;">
-                            <i class="fa-solid fa-trash-can"></i> Padam Semua
-                        </button>
-                    </div>
-                    <div id="adminRsvpContainer">
-                        <!-- Dynamic list of RSVPs generated by JavaScript -->
-                    </div>
-                </div>
-
-                <button type="submit" class="btn btn-primary" style="margin-top: 8px;">
-                    <i class="fa-solid fa-floppy-disk"></i> Simpan & Kemaskini
-                </button>
             </form>
         </div>
     </div>
 
-    <!-- Toast notification -->
-    <div class="toast" id="toastMsg">RSVP anda berjaya dihantar! Terima kasih.</div>
+    <!-- RSVP Management Modal -->
+    <div class="modal-overlay" id="manageRsvpModal">
+        <div class="modal-card">
+            <button class="modal-close" id="closeManageRsvpBtn"><i class="fa-solid fa-xmark"></i></button>
+            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--primary); margin-bottom: 15px;">Senarai RSVP</h3>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <span id="rsvpCountTxt" style="font-size: 0.8rem; font-weight: 700; color: var(--text-light);">Jumlah: 0</span>
+                <button type="button" class="btn" id="btnTriggerDeleteAll" style="background: rgba(220,53,69,0.1); color: #dc3545; padding: 8px 12px; font-size: 0.75rem; width: auto; border: 1px solid rgba(220,53,69,0.2);"><i class="fa-solid fa-trash-can"></i> Padam Semua</button>
+            </div>
+
+            <div id="adminRsvpListContainer" style="max-height: 50vh; overflow-y: auto; padding-right: 5px;">
+                <!-- Dijana oleh Javascript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Confirmation Modal -->
+    <div class="modal-overlay" id="confirmModal" style="z-index: 3000;">
+        <div class="modal-card" style="max-width: 320px; text-align: center; padding: 25px;">
+            <div style="font-size: 2.5rem; color: #dc3545; margin-bottom: 10px;"><i class="fa-solid fa-circle-exclamation"></i></div>
+            <h3 style="color: var(--text-dark); margin-bottom: 10px; font-size: 1.2rem;">Pengesahan</h3>
+            <p id="confirmMessage" style="font-size: 0.9rem; margin-bottom: 20px; color: var(--text-light); line-height: 1.4;">Adakah anda pasti?</p>
+            <div style="display: flex; gap: 10px;">
+                <button id="btnCancelConfirm" class="btn btn-secondary" style="margin-top: 0;">Batal</button>
+                <button id="btnProceedConfirm" class="btn" style="background: #dc3545; color: white; margin-top: 0; border: none;">Pasti</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Component -->
+    <div class="toast" id="toastMsg">Berjaya!</div>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, setDoc, getDoc, onSnapshot, collection, addDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getFirestore, doc, setDoc, onSnapshot, collection, addDoc, getDocs, writeBatch, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // State for Selected Theme, Audio & Admin Auth
-        let selectedThemeId = "pastel-lavender";
-        let isAdminAuthenticated = false;
-        let isAudioPlaying = false;
-        const ADMIN_PASSWORD = "tomtombak";
+        // Global Variables
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'kad-jemputan-kaca';
+        const rawConfig = typeof __firebase_config !== 'undefined' ? __firebase_config : null;
+        let firebaseConfig = { apiKey: "AIzaSyDSqblFdWXAIg9IFV3EZN-iLKXhfkL0c2g", projectId: "mysmartapps", authDomain: "mysmartapps.firebaseapp.com" };
+        if (rawConfig) { try { firebaseConfig = JSON.parse(rawConfig); } catch(e){} }
 
-        // URL Google Apps Script Web App
-        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby-tr3IyFkl_Rxyd8aPFxze8A5rURdf-SWs_6w3zjki7wiiB3Jd9pa_Oqx6GBSXVge4-w/exec";
-
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'kad-jemputan-nikah';
-        let db = null;
-        let auth = null;
-        let currentUser = null;
-
-        // Firebase Configuration bagi projek mysmartapps
-        const firebaseConfig = {
-            apiKey: "AIzaSyDSqblFdWXAIg9IFV3EZN-iLKXhfkL0c2g",
-            authDomain: "mysmartapps.firebaseapp.com",
-            projectId: "mysmartapps",
-            storageBucket: "mysmartapps.firebasestorage.app",
-            messagingSenderId: "329775742642",
-            appId: "1:329775742642:web:22751517bb2da543bcd3ab",
-            measurementId: "G-R2Q3WNWVH1"
-        };
-
-        const bgAudio = document.getElementById("bgAudio");
-        const musicToggleBtn = document.getElementById("musicToggleBtn");
-        const inputAudioUrl = document.getElementById("inputAudioUrl");
-
-        // Audio Player Controls & Autoplay Fix
-        function toggleAudio() {
-            if (!bgAudio) return;
-            if (bgAudio.paused) {
-                bgAudio.play().then(() => {
-                    isAudioPlaying = true;
-                    if (musicToggleBtn) musicToggleBtn.classList.add("playing");
-                }).catch(err => console.log("Gagal memulakan audio:", err));
-            } else {
-                bgAudio.pause();
-                isAudioPlaying = false;
-                if (musicToggleBtn) musicToggleBtn.classList.remove("playing");
-            }
-        }
-
-        if (musicToggleBtn) {
-            musicToggleBtn.addEventListener("click", toggleAudio);
-        }
-
-        // Kebanyakan pelayar web (iOS / Android / Chrome) menghalang autoplay tanpa interaksi pengguna.
-        // Sentuhan atau klik pertama di mana-mana bahagian skrin akan memulakan muzik.
-        function setupAutoplayOnFirstTouch() {
-            const startAudio = () => {
-                if (bgAudio && bgAudio.paused) {
-                    bgAudio.play().then(() => {
-                        isAudioPlaying = true;
-                        if (musicToggleBtn) musicToggleBtn.classList.add("playing");
-                    }).catch(err => console.log("Autoplay dihalang pelayar:", err));
-                }
-            };
-            document.addEventListener("click", startAudio, { once: true });
-            document.addEventListener("touchstart", startAudio, { once: true });
-        }
-
-        async function initFirebase() {
-            try {
-                const configToUse = (typeof __firebase_config !== 'undefined' && __firebase_config) 
-                    ? JSON.parse(__firebase_config) 
-                    : firebaseConfig;
-
-                const app = initializeApp(configToUse);
-                auth = getAuth(app);
-                db = getFirestore(app);
-
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                } else {
-                    await signInAnonymously(auth);
-                }
-
-                currentUser = auth.currentUser;
-                if (currentUser) {
-                    setupRealtimeSync();
-                }
-            } catch (err) {
-                console.error("Ralat memulakan Firebase:", err);
-            }
-        }
-
-        function setupRealtimeSync() {
-            if (!db || !currentUser) return;
-
-            const settingsDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'config');
-            
-            onSnapshot(settingsDocRef, (docSnap) => {
-                if (docSnap.exists()) {
-                    applySettingsFromFirebase(docSnap.data());
-                }
-            }, (error) => {
-                console.error("Ralat snapshot tetapan:", error);
-            });
-
-            const wishesCollRef = collection(db, 'artifacts', appId, 'public', 'data', 'wishes');
-            
-            onSnapshot(wishesCollRef, (snapshot) => {
-                wishesData = [];
-                snapshot.forEach((docSnap) => {
-                    wishesData.push({ id: docSnap.id, ...docSnap.data() });
-                });
-                renderWishesList();
-                renderAdminRsvpList();
-            }, (error) => {
-                console.error("Ralat snapshot ucapan:", error);
-            });
-        }
-
-        function applySettingsFromFirebase(data) {
-            if (data.themeId) {
-                selectedThemeId = data.themeId;
-                applyTheme(selectedThemeId);
-                document.querySelectorAll(".theme-card-option").forEach(card => {
-                    if (card.getAttribute("data-theme-id") === selectedThemeId) {
-                        card.classList.add("selected");
-                    } else {
-                        card.classList.remove("selected");
-                    }
-                });
-            }
-            if (data.audioUrl) {
-                if (inputAudioUrl) inputAudioUrl.value = data.audioUrl;
-                if (bgAudio && bgAudio.src !== data.audioUrl) {
-                    bgAudio.src = data.audioUrl;
-                    if (isAudioPlaying) {
-                        bgAudio.play().catch(e => console.log(e));
-                    }
-                }
-            }
-            if (data.namaHost) {
-                document.getElementById("displayNamaHost").innerText = data.namaHost;
-                document.getElementById("inputNamaHost").value = data.namaHost;
-            }
-            if (data.namaLelaki) {
-                document.getElementById("displayNamaLelaki").innerText = data.namaLelaki;
-                document.getElementById("inputLelaki").value = data.namaLelaki;
-            }
-            if (data.namaPerempuan) {
-                document.getElementById("displayNamaPerempuan").innerText = data.namaPerempuan;
-                document.getElementById("inputPerempuan").value = data.namaPerempuan;
-            }
-            if (data.tarikh) {
-                document.getElementById("displayTarikhMasa").innerText = data.tarikh;
-                document.getElementById("inputTarikh").value = data.tarikh;
-            }
-            if (data.masa) {
-                document.getElementById("displayMasaSub").innerText = data.masa;
-                document.getElementById("inputMasa").value = data.masa;
-            }
-            if (data.lokasi) {
-                document.getElementById("displayLokasiNama").innerText = data.lokasi;
-                document.getElementById("inputLokasi").value = data.lokasi;
-            }
-            if (data.lokasiSub) {
-                document.getElementById("displayLokasiSub").innerText = data.lokasiSub;
-                document.getElementById("inputLokasiSub").value = data.lokasiSub;
-            }
-            if (data.agenda && Array.isArray(data.agenda)) {
-                agendaData = data.agenda;
-                renderMainAgenda();
-            }
-            if (typeof data.showDressCode === 'boolean') {
-                document.getElementById("toggleDressCode").checked = data.showDressCode;
-                document.getElementById("paletteSection").style.display = data.showDressCode ? "block" : "none";
-            }
-            if (typeof data.showStickyNav === 'boolean') {
-                document.getElementById("toggleStickyNav").checked = data.showStickyNav;
-                document.getElementById("stickyNavSection").style.display = data.showStickyNav ? "flex" : "none";
-                document.body.style.paddingBottom = data.showStickyNav ? "90px" : "25px";
-            }
-            updateMapLinks(data.lokasi || "The Glasshouse Cafe", data.lokasiSub || "Eco Sanctuary, Selangor");
-        }
-
+        let db, auth;
+        let selectedTheme = "pastel-lavender";
+        let bgAudio = new Audio(); bgAudio.loop = true;
+        let isPlaying = false;
+        
+        let wishesData = [];
         let agendaData = [
             { time: "4:15 PM", desc: "Ketibaan Tetamu Jemputan" },
             { time: "4:45 PM", desc: "Upacara Akad Nikah" },
-            { time: "5:30 PM", desc: "Sesi Jamuan Petang & Fotografi" },
-            { time: "7:00 PM", desc: "Majlis Bersurai" }
+            { time: "5:30 PM", desc: "Jamuan & Fotografi" }
         ];
 
-        let wishesData = [
-            { id: "1", name: "Ahmad & Keluarga", wish: "Selamat pengantin baru Naim & Sarah! Semoga mahligai yang dibina sentiasa dilimpahi keberkatan dan kebahagiaan hingga ke jannah.", status: "Hadir", pax: "2" },
-            { id: "2", name: "Siti Nurhaliza", wish: "Tahniah buat kedua rakan! Semoga dipermudahkan segala urusan majlis akad nikah.", status: "Hadir", pax: "1" }
-        ];
+        // Initialize Firebase
+        async function initApp() {
+            try {
+                const app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
 
-        function initThemeSelector() {
-            const themeCards = document.querySelectorAll(".theme-card-option");
-            themeCards.forEach(card => {
-                card.addEventListener("click", () => {
-                    themeCards.forEach(c => c.classList.remove("selected"));
-                    card.classList.add("selected");
-                    selectedThemeId = card.getAttribute("data-theme-id");
-                    applyTheme(selectedThemeId);
-                });
-            });
+                const token = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+                if(token) await signInWithCustomToken(auth, token);
+                else await signInAnonymously(auth);
+
+                setupListeners();
+            } catch(e) { console.error("Firebase Error: ", e); }
         }
 
-        function applyTheme(themeId) {
-            document.body.setAttribute("data-theme", themeId);
+        // Firebase Listeners
+        function setupListeners() {
+            if(!auth.currentUser) return;
+
+            // Updated valid document path (4 segments)
+            const settingsPath = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'config');
+            const wishesPath = collection(db, 'artifacts', appId, 'public', 'data', 'wishes');
+
+            onSnapshot(settingsPath, (docSnap) => {
+                if(docSnap.exists()) applySettings(docSnap.data());
+            }, e => console.log("Ralat Settings:", e));
+
+            onSnapshot(wishesPath, (snap) => {
+                wishesData = [];
+                snap.forEach(d => wishesData.push({id: d.id, ...d.data()}));
+                renderWishes();
+                renderAdminRsvpList();
+            }, e => console.log("Ralat Wishes:", e));
         }
 
-        function updateMapLinks(lokasi, lokasiSub) {
-            const fullAddress = `${lokasi} ${lokasiSub}`.trim();
-            if (!fullAddress) return;
+        function applySettings(d) {
+            // Theme
+            if(d.theme) { selectedTheme = d.theme; document.body.setAttribute('data-theme', d.theme); }
             
-            const query = encodeURIComponent(fullAddress);
-            const mapIframe = document.getElementById("mapIframe");
-            const btnGmaps = document.getElementById("btnGmaps");
-            const btnWaze = document.getElementById("btnWaze");
+            // Texts
+            if(d.tajuk) { setTxt('displayTajukKad', d.tajuk); setVal('inTajuk', d.tajuk); setTxt('introTajuk', d.tajuk); }
+            if(d.kataGanti) { setTxt('displayKataGanti', d.kataGanti); setVal('inKataGanti', d.kataGanti); }
+            
+            // Host 1 & 2
+            if(d.host1) { setTxt('displayNamaHost1', d.host1); setVal('inHost1', d.host1); }
+            if(d.host2 !== undefined) { 
+                setTxt('displayNamaHost2', d.host2); setVal('inHost2', d.host2); 
+                document.getElementById('displayHostAmpersand').style.display = d.host2 ? 'inline' : 'none';
+            }
 
-            if (mapIframe) {
-                mapIframe.src = `https://maps.google.com/maps?q=${query}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+            // MAJLIS 1
+            if(d.majlis) { 
+                setTxt('displayJenisMajlis', d.majlis); setVal('inMajlis', d.majlis); 
+                setTxt('introJenisMajlis', d.majlis); document.getElementById('introJenisMajlis').style.display = 'block';
             }
-            if (btnGmaps) {
-                btnGmaps.href = `https://www.google.com/maps/search/?api=1&query=${query}`;
+            if(d.subjek1) { setTxt('displaySubjek1', d.subjek1); setVal('inSubjek1', d.subjek1); setTxt('introSubjek1', d.subjek1); }
+            if(d.subjek2 !== undefined) { 
+                setTxt('displaySubjek2', d.subjek2); setVal('inSubjek2', d.subjek2); 
+                document.getElementById('displaySubjekAmpersand').style.display = d.subjek2 ? 'block' : 'none';
+                setTxt('introSubjek2', d.subjek2);
+                document.getElementById('introSubjekAmpersand').style.display = d.subjek2 ? 'block' : 'none';
             }
-            if (btnWaze) {
-                btnWaze.href = `https://waze.com/ul?q=${query}`;
+
+            // MAJLIS 2 (DUAL EVENT LOGIC)
+            const enableMajlis2 = d.enableMajlis2 || false;
+            document.getElementById('inEnableMajlis2').checked = enableMajlis2;
+            document.getElementById('boxMajlis2').style.display = enableMajlis2 ? 'block' : 'none';
+            document.getElementById('labelMajlis1').style.display = enableMajlis2 ? 'block' : 'none';
+            document.getElementById('boxMajlis1').style.borderColor = enableMajlis2 ? 'var(--primary)' : 'transparent';
+            document.getElementById('boxMajlis1').style.padding = enableMajlis2 ? '20px 15px 5px 15px' : '0';
+
+            // TETAPAN MENU NAVIGASI BAWAH
+            const enableNav = d.enableNav !== undefined ? d.enableNav : true;
+            document.getElementById('inEnableNav').checked = enableNav;
+            document.querySelector('.sticky-nav').style.display = enableNav ? 'flex' : 'none';
+            document.querySelector('.app-wrapper').style.paddingBottom = enableNav ? '90px' : '25px';
+
+            const m2BlockIntro = document.getElementById('introMajlis2Block');
+            const m2BlockCard = document.getElementById('displayMajlis2Block');
+            const frameImg2 = document.getElementById('frameImg2');
+
+            if (enableMajlis2) {
+                m2BlockIntro.style.display = 'block';
+                m2BlockCard.style.display = 'block';
+                
+                if(d.majlis2_jenis) { setTxt('introJenisMajlis2', d.majlis2_jenis); setTxt('displayJenisMajlis2', d.majlis2_jenis); setVal('inMajlis2', d.majlis2_jenis); }
+                if(d.majlis2_sub1) { setTxt('introMajlis2Subjek1', d.majlis2_sub1); setTxt('displayMajlis2Subjek1', d.majlis2_sub1); setVal('inMajlis2Subjek1', d.majlis2_sub1); }
+                
+                if(d.majlis2_sub2 !== undefined) {
+                    setTxt('introMajlis2Subjek2', d.majlis2_sub2); setTxt('displayMajlis2Subjek2', d.majlis2_sub2); setVal('inMajlis2Subjek2', d.majlis2_sub2);
+                    document.getElementById('introMajlis2SubjekAmpersand').style.display = d.majlis2_sub2 ? 'inline-block' : 'none';
+                    document.getElementById('displayMajlis2SubjekAmpersand').style.display = d.majlis2_sub2 ? 'inline-block' : 'none';
+                }
+
+                if(d.majlis2_imej) {
+                    document.getElementById('displayImage2').src = d.majlis2_imej;
+                    setVal('inImej2', d.majlis2_imej);
+                    frameImg2.style.display = 'flex';
+                } else {
+                    frameImg2.style.display = 'none';
+                }
+            } else {
+                m2BlockIntro.style.display = 'none';
+                m2BlockCard.style.display = 'none';
+                frameImg2.style.display = 'none';
             }
+
+            // Images
+            if(d.imgUrl) { document.getElementById('displayImage').src = d.imgUrl; setVal('inImej', d.imgUrl); document.getElementById('frameImg1').style.display = 'flex'; }
+            else { document.getElementById('frameImg1').style.display = 'none'; }
+            
+            // Other details
+            if(d.qTeks) { setTxt('displayQuoteTeks', d.qTeks); setVal('inQuoteTeks', d.qTeks); }
+            if(d.qSumber) { setTxt('displayQuoteSumber', d.qSumber); setVal('inQuoteSumber', d.qSumber); }
+            if(d.tarikh) { setTxt('displayTarikh', d.tarikh); setVal('inTarikh', d.tarikh); }
+            if(d.masa) { setTxt('displayMasa', d.masa); setVal('inMasa', d.masa); }
+            if(d.lokasiNama) { setTxt('displayLokasiNama', d.lokasiNama); setVal('inLokasiNama', d.lokasiNama); }
+            if(d.lokasiSub) { setTxt('displayLokasiSub', d.lokasiSub); setVal('inLokasiSub', d.lokasiSub); }
+            
+            if(d.agenda) { agendaData = d.agenda; renderAgenda(); }
+
+            // Audio Update
+            const musicBtn = document.getElementById('musicBtn');
+            if(d.audioUrl) {
+                if(bgAudio.src !== d.audioUrl) {
+                    bgAudio.src = d.audioUrl;
+                    isPlaying = false;
+                    musicBtn.classList.remove('playing');
+                }
+                setVal('inAudio', d.audioUrl);
+                musicBtn.style.display = 'flex';
+            } else {
+                bgAudio.src = ''; musicBtn.style.display = 'none';
+            }
+
+            updateMap(d.lokasiNama || 'Glasshouse', d.lokasiSub || 'Kuala Lumpur');
+            updateAdminThemeSelection();
         }
 
-        function renderWishesList() {
-            const container = document.getElementById("wishesList");
-            if (!container) return;
-            if (wishesData.length === 0) {
-                container.innerHTML = '<p style="text-align: center; color: var(--text-light); font-size: 0.85rem; padding: 12px 0;">Belum ada ucapan. Jadilah yang pertama mendoakan!</p>';
-                return;
-            }
-            container.innerHTML = wishesData.map(item => `
-                <div class="wish-item">
-                    <div class="wish-author">${escapeHtml(item.name || '')} <span style="font-weight: 400; font-size: 0.72rem; color: var(--accent);">(${escapeHtml(item.status || "Hadir")})</span></div>
-                    <div class="wish-text">${escapeHtml(item.wish || "Tiada ucapan khas.")}</div>
-                </div>
-            `).join('');
+        // Helpers
+        const setTxt = (id, txt) => { const el = document.getElementById(id); if(el) el.innerText = txt; }
+        const setVal = (id, val) => { const el = document.getElementById(id); if(el) el.value = val; }
+        
+        function updateMap(loc, sub) {
+            const q = encodeURIComponent(loc + " " + sub);
+            document.getElementById('mapIframe').src = `https://maps.google.com/maps?q=${q}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+            document.getElementById('btnGmaps').href = `https://www.google.com/maps/search/?api=1&query=${q}`;
+            document.getElementById('btnWaze').href = `https://waze.com/ul?q=${q}`;
         }
 
-        function renderAdminRsvpList() {
-            const container = document.getElementById("adminRsvpContainer");
-            if (!container) return;
-            if (wishesData.length === 0) {
-                container.innerHTML = '<p style="font-size: 0.8rem; color: var(--text-light); text-align: center; padding: 10px 0;">Tiada senarai RSVP / ucapan ditemui.</p>';
-                return;
-            }
-
-            container.innerHTML = wishesData.map(item => `
-                <div class="admin-rsvp-item">
-                    <div style="flex: 1; min-width: 0; text-align: left;">
-                        <div style="font-size: 0.82rem; font-weight: 700; color: var(--text-dark); display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
-                            ${escapeHtml(item.name || '')}
-                            <span style="font-size: 0.68rem; background: var(--badge-bg); color: var(--primary); padding: 2px 6px; border-radius: 8px; font-weight: 600;">
-                                ${escapeHtml(item.status || "Hadir")} (${escapeHtml(String(item.pax || "1"))} pax)
-                            </span>
-                        </div>
-                        <div style="font-size: 0.75rem; color: var(--text-light); margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                            ${escapeHtml(item.wish || "- Tiada ucapan -")}
-                        </div>
-                    </div>
-                    <button type="button" class="btn-delete-rsvp" data-id="${item.id}" title="Padam Rekod Ini">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </div>
-            `).join('');
-
-            container.querySelectorAll(".btn-delete-rsvp").forEach(btn => {
-                btn.addEventListener("click", async (e) => {
-                    const idToDelete = e.currentTarget.getAttribute("data-id");
-                    if (db && currentUser && idToDelete) {
-                        try {
-                            await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'wishes', idToDelete));
-                        } catch (err) {
-                            console.error("Ralat memadam RSVP:", err);
-                        }
-                    } else {
-                        wishesData = wishesData.filter(item => String(item.id) !== String(idToDelete));
-                        renderAdminRsvpList();
-                        renderWishesList();
-                    }
-                    
-                    if (toastMsg) {
-                        toastMsg.innerText = "Rekod RSVP berjaya dipadam!";
-                        toastMsg.classList.add("show");
-                        setTimeout(() => {
-                            toastMsg.innerText = "RSVP anda berjaya dihantar! Terima kasih.";
-                            toastMsg.classList.remove("show");
-                        }, 2500);
-                    }
-                });
-            });
-        }
-
-        function renderMainAgenda() {
-            const container = document.getElementById("agendaList");
-            if (!container) return;
-            if (agendaData.length === 0) {
-                container.innerHTML = '<p style="text-align: center; color: var(--text-light); font-size: 0.85rem; padding: 10px 0;">Tiada atur cara ditetapkan.</p>';
-                return;
-            }
-            container.innerHTML = agendaData.map(item => `
+        function renderAgenda() {
+            document.getElementById('agendaList').innerHTML = agendaData.map(a => `
                 <div class="timeline-item">
-                    <div class="timeline-time">${escapeHtml(item.time)}</div>
-                    <div class="timeline-desc">${escapeHtml(item.desc)}</div>
+                    <div class="time-badge">${a.time}</div>
+                    <div class="time-desc">${a.desc}</div>
                 </div>
             `).join('');
         }
 
-        function renderAdminAgendaRows() {
-            const container = document.getElementById("adminAgendaRowsContainer");
-            if (!container) return;
-            container.innerHTML = "";
+        function renderWishes() {
+            const c = document.getElementById('wishesList');
+            if(!wishesData.length) { c.innerHTML = '<p style="font-size:0.8rem; opacity:0.7;">Jadilah orang pertama memberi ucapan!</p>'; return; }
+            c.innerHTML = wishesData.map(w => `
+                <div class="wish-item">
+                    <div class="wish-name">${escapeHtml(w.name)} (${escapeHtml(w.pax)} Pax)</div>
+                    <div class="wish-msg">${escapeHtml(w.wish || 'Hadir tanda sokongan!')}</div>
+                </div>
+            `).join('');
+        }
+        function escapeHtml(t) { return (t||'').replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
 
-            agendaData.forEach((item, index) => {
-                const row = document.createElement("div");
-                row.className = "agenda-input-row";
-                row.innerHTML = `
-                    <input type="text" class="form-control agenda-time-input" value="${escapeHtml(item.time)}" placeholder="Masa (cth: 4:15 PM)">
-                    <input type="text" class="form-control agenda-desc-input" value="${escapeHtml(item.desc)}" placeholder="Acara / Aktiviti">
-                    <button type="button" class="btn-remove-agenda" data-index="${index}" title="Padam Acara">
-                        <i class="fa-solid fa-minus"></i>
-                    </button>
-                `;
-                container.appendChild(row);
-            });
+        // Intersection Observer for scroll animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
+        }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-            container.querySelectorAll(".btn-remove-agenda").forEach(btn => {
-                btn.addEventListener("click", (e) => {
-                    const idx = parseInt(e.currentTarget.getAttribute("data-index"), 10);
-                    syncAdminInputsToData();
-                    agendaData.splice(idx, 1);
-                    renderAdminAgendaRows();
-                });
+        // Music Control
+        document.getElementById('musicBtn').onclick = function() {
+            if(!bgAudio.src) return;
+            if(isPlaying) { bgAudio.pause(); this.classList.remove('playing'); }
+            else { bgAudio.play().catch(e=>console.log(e)); this.classList.add('playing'); }
+            isPlaying = !isPlaying;
+        };
+
+        // Modals Toggle
+        const toggleModal = (id, show) => document.getElementById(id).classList.toggle('active', show);
+        document.getElementById('openRsvpBtn').onclick = () => toggleModal('rsvpModal', true);
+        document.getElementById('navRsvp').onclick = () => toggleModal('rsvpModal', true);
+        document.getElementById('closeRsvpBtn').onclick = () => toggleModal('rsvpModal', false);
+        
+        // Password Admin Lock
+        document.getElementById('openPasswordBtn').onclick = () => toggleModal('passwordModal', true);
+        document.getElementById('closePasswordBtn').onclick = () => toggleModal('passwordModal', false);
+        document.getElementById('closeAdminBtn').onclick = () => toggleModal('adminModal', false);
+
+        document.getElementById('adminPassword').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                document.getElementById('btnSubmitPassword').click();
+            }
+        });
+
+        document.getElementById('btnSubmitPassword').onclick = () => {
+            if (document.getElementById('adminPassword').value === 'alang123') {
+                toggleModal('passwordModal', false);
+                renderAdminAgendaList();
+                toggleModal('adminModal', true);
+                document.getElementById('adminPassword').value = '';
+                document.getElementById('passwordError').style.display = 'none';
+            } else {
+                document.getElementById('passwordError').style.display = 'block';
+            }
+        };
+
+        // Intro Book Cover
+        document.getElementById('btnBukaKad').onclick = function() {
+            document.getElementById('introCover').classList.add('hide');
+            if(bgAudio.src && bgAudio.src !== window.location.href) {
+                bgAudio.play().catch(e => console.log(e));
+                isPlaying = true;
+                document.getElementById('musicBtn').classList.add('playing');
+            }
+        };
+
+        // Toast Notif
+        const showToast = (msg) => {
+            const t = document.getElementById('toastMsg'); t.innerText = msg; t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 3000);
+        }
+
+        // Toggle Majlis 2 UI
+        document.getElementById('inEnableMajlis2').onchange = (e) => {
+            const isChecked = e.target.checked;
+            document.getElementById('boxMajlis2').style.display = isChecked ? 'block' : 'none';
+            document.getElementById('labelMajlis1').style.display = isChecked ? 'block' : 'none';
+            document.getElementById('boxMajlis1').style.borderColor = isChecked ? 'var(--primary)' : 'transparent';
+            document.getElementById('boxMajlis1').style.padding = isChecked ? '20px 15px 5px 15px' : '0';
+        };
+
+        // Themes
+        document.querySelectorAll('.theme-card-option').forEach(el => {
+            el.onclick = () => {
+                selectedTheme = el.getAttribute('data-theme');
+                updateAdminThemeSelection();
+                document.body.setAttribute('data-theme', selectedTheme);
+            }
+        });
+        function updateAdminThemeSelection() {
+            document.querySelectorAll('.theme-card-option').forEach(el => {
+                el.classList.toggle('selected', el.getAttribute('data-theme') === selectedTheme);
             });
         }
 
-        function syncAdminInputsToData() {
-            const timeInputs = document.querySelectorAll(".agenda-time-input");
-            const descInputs = document.querySelectorAll(".agenda-desc-input");
-            agendaData = [];
-            timeInputs.forEach((input, idx) => {
-                agendaData.push({
-                    time: input.value,
-                    desc: descInputs[idx] ? descInputs[idx].value : ""
-                });
-            });
+        // Admin Agenda Logic
+        function renderAdminAgendaList() {
+            const container = document.getElementById('adminAgendaContainer');
+            if(!container) return;
+            container.innerHTML = agendaData.map((a) => `
+                <div class="admin-agenda-row">
+                    <input type="text" class="form-control agenda-time" value="${escapeHtml(a.time)}" placeholder="Masa (cth: 12:00 PM)" style="flex: 1;">
+                    <input type="text" class="form-control agenda-desc" value="${escapeHtml(a.desc)}" placeholder="Acara" style="flex: 2;">
+                    <button type="button" class="btn-del-agenda" onclick="removeAgendaRow(this)"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            `).join('');
         }
 
-        // Set tarikh majlis (24 Oktober 2026, 16:30:00)
-        let eventDate = new Date("Oct 24, 2026 16:30:00").getTime();
+        document.getElementById('btnAddAgenda').onclick = () => {
+            const container = document.getElementById('adminAgendaContainer');
+            const div = document.createElement('div');
+            div.className = 'admin-agenda-row';
+            div.innerHTML = `
+                <input type="text" class="form-control agenda-time" placeholder="Masa (cth: 12:00 PM)" style="flex: 1;">
+                <input type="text" class="form-control agenda-desc" placeholder="Acara / Majlis" style="flex: 2;">
+                <button type="button" class="btn-del-agenda" onclick="removeAgendaRow(this)"><i class="fa-solid fa-trash"></i></button>
+            `;
+            container.appendChild(div);
+        };
 
-        const timer = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = eventDate - now;
+        window.removeAgendaRow = (btn) => {
+            btn.parentElement.remove();
+        };
 
-            if (distance < 0) {
-                clearInterval(timer);
-                const countdownElem = document.querySelector(".countdown");
-                if (countdownElem) {
-                    countdownElem.innerHTML = "<b style='font-size: 1.1rem; text-align: center; width: 100%;'>Majlis Telah Berlangsung</b>";
-                }
+        // RSVP Submit
+        document.getElementById('rsvpForm').onsubmit = async (e) => {
+            e.preventDefault();
+            if(!auth.currentUser) return showToast("Sistem dimuatkan, cuba lagi.");
+            
+            const payload = {
+                name: document.getElementById('namaRsvp').value,
+                status: document.getElementById('hadirRsvp').value,
+                pax: document.getElementById('paxRsvp').value,
+                wish: document.getElementById('ucapanRsvp').value,
+                createdAt: new Date().toISOString()
+            };
+
+            await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'wishes'), payload);
+            toggleModal('rsvpModal', false);
+            showToast('RSVP berjaya dihantar. Terima Kasih!');
+            e.target.reset();
+        };
+
+        // Admin Save
+        document.getElementById('adminForm').onsubmit = async (e) => {
+            e.preventDefault();
+            if(!auth.currentUser) return;
+
+            // Gather agenda
+            const agendaInputs = document.querySelectorAll('.admin-agenda-row');
+            const newAgenda = [];
+            agendaInputs.forEach(row => {
+                const time = row.querySelector('.agenda-time').value;
+                const desc = row.querySelector('.agenda-desc').value;
+                if(time || desc) newAgenda.push({time, desc});
+            });
+
+            const payload = {
+                theme: selectedTheme,
+                tajuk: document.getElementById('inTajuk').value,
+                kataGanti: document.getElementById('inKataGanti').value,
+                host1: document.getElementById('inHost1').value,
+                host2: document.getElementById('inHost2').value,
+                majlis: document.getElementById('inMajlis').value,
+                subjek1: document.getElementById('inSubjek1').value,
+                subjek2: document.getElementById('inSubjek2').value,
+                
+                enableMajlis2: document.getElementById('inEnableMajlis2').checked,
+                enableNav: document.getElementById('inEnableNav').checked,
+                majlis2_jenis: document.getElementById('inMajlis2').value,
+                majlis2_sub1: document.getElementById('inMajlis2Subjek1').value,
+                majlis2_sub2: document.getElementById('inMajlis2Subjek2').value,
+                majlis2_imej: document.getElementById('inImej2').value,
+
+                qTeks: document.getElementById('inQuoteTeks').value,
+                qSumber: document.getElementById('inQuoteSumber').value,
+                tarikh: document.getElementById('inTarikh').value,
+                masa: document.getElementById('inMasa').value,
+                lokasiNama: document.getElementById('inLokasiNama').value,
+                lokasiSub: document.getElementById('inLokasiSub').value,
+                agenda: newAgenda,
+                imgUrl: document.getElementById('inImej').value,
+                audioUrl: document.getElementById('inAudio').value
+            };
+
+            const settingsPath = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'config');
+            await setDoc(settingsPath, payload, { merge: true });
+            
+            toggleModal('adminModal', false);
+            showToast('Tetapan kad dikemaskini!');
+        };
+
+        // Custom Confirm
+        let confirmAction = null;
+        function customConfirm(msg, callback) {
+            document.getElementById('confirmMessage').innerText = msg;
+            confirmAction = callback;
+            toggleModal('confirmModal', true);
+        }
+        document.getElementById('btnCancelConfirm').onclick = () => toggleModal('confirmModal', false);
+        document.getElementById('btnProceedConfirm').onclick = () => {
+            toggleModal('confirmModal', false);
+            if(confirmAction) confirmAction();
+        };
+
+        // RSVP Management List
+        function renderAdminRsvpList() {
+            const container = document.getElementById('adminRsvpListContainer');
+            const countTxt = document.getElementById('rsvpCountTxt');
+            if(!container) return;
+            
+            countTxt.innerText = `Jumlah: ${wishesData.length}`;
+            
+            if(!wishesData.length) {
+                container.innerHTML = '<p style="font-size:0.8rem; opacity:0.7; text-align:center;">Tiada rekod RSVP.</p>';
                 return;
             }
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            container.innerHTML = wishesData.map(w => {
+                const statusClass = w.status === 'Hadir' ? 'status-hadir' : 'status-tidak';
+                return `
+                    <div class="admin-rsvp-item">
+                        <div class="admin-rsvp-info">
+                            <div class="admin-rsvp-name">${escapeHtml(w.name)} (${escapeHtml(w.pax)} Pax)</div>
+                            <div class="admin-rsvp-status ${statusClass}">${escapeHtml(w.status || 'Tidak Dinyatakan')}</div>
+                            ${w.wish ? `<div class="admin-rsvp-wish">"${escapeHtml(w.wish)}"</div>` : ''}
+                        </div>
+                        <button class="btn-del-single" data-id="${w.id}" title="Padam RSVP"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                `;
+            }).join('');
 
-            const elemDays = document.getElementById("days");
-            const elemHours = document.getElementById("hours");
-            const elemMinutes = document.getElementById("minutes");
-            const elemSeconds = document.getElementById("seconds");
-
-            if (elemDays) elemDays.innerText = days < 10 ? "0" + days : days;
-            if (elemHours) elemHours.innerText = hours < 10 ? "0" + hours : hours;
-            if (elemMinutes) elemMinutes.innerText = minutes < 10 ? "0" + minutes : minutes;
-            if (elemSeconds) elemSeconds.innerText = seconds < 10 ? "0" + seconds : seconds;
-        }, 1000);
-
-        const rsvpModal = document.getElementById("rsvpModal");
-        const openRsvpBtn = document.getElementById("openRsvpBtn");
-        const navRsvp = document.getElementById("navRsvp");
-        const closeRsvpBtn = document.getElementById("closeRsvpBtn");
-        const rsvpForm = document.getElementById("rsvpForm");
-        const toastMsg = document.getElementById("toastMsg");
-
-        function showRsvp() {
-            if (rsvpModal) rsvpModal.classList.add("active");
-        }
-
-        if (openRsvpBtn) openRsvpBtn.addEventListener("click", showRsvp);
-        if (navRsvp) navRsvp.addEventListener("click", showRsvp);
-
-        if (closeRsvpBtn) {
-            closeRsvpBtn.addEventListener("click", () => {
-                if (rsvpModal) rsvpModal.classList.remove("active");
-            });
-        }
-
-        if (rsvpModal) {
-            rsvpModal.addEventListener("click", (e) => {
-                if (e.target === rsvpModal) {
-                    rsvpModal.classList.remove("active");
-                }
-            });
-        }
-
-        const adminModal = document.getElementById("adminModal");
-        const openAdminBtn = document.getElementById("openAdminBtn");
-        const closeAdminBtn = document.getElementById("closeAdminBtn");
-        const adminForm = document.getElementById("adminForm");
-        const addAgendaRowBtn = document.getElementById("addAgendaRowBtn");
-
-        const adminAuthModal = document.getElementById("adminAuthModal");
-        const adminAuthForm = document.getElementById("adminAuthForm");
-        const closeAdminAuthBtn = document.getElementById("closeAdminAuthBtn");
-        const adminAuthPassword = document.getElementById("adminAuthPassword");
-        const adminAuthError = document.getElementById("adminAuthError");
-
-        if (addAgendaRowBtn) {
-            addAgendaRowBtn.addEventListener("click", () => {
-                syncAdminInputsToData();
-                agendaData.push({ time: "", desc: "" });
-                renderAdminAgendaRows();
-            });
-        }
-
-        if (openAdminBtn) {
-            openAdminBtn.addEventListener("click", () => {
-                if (isAdminAuthenticated) {
-                    renderAdminAgendaRows();
-                    renderAdminRsvpList();
-                    if (adminModal) adminModal.classList.add("active");
-                } else {
-                    if (adminAuthError) adminAuthError.style.display = "none";
-                    if (adminAuthPassword) adminAuthPassword.value = "";
-                    if (adminAuthModal) adminAuthModal.classList.add("active");
-                }
-            });
-        }
-
-        if (closeAdminAuthBtn) {
-            closeAdminAuthBtn.addEventListener("click", () => {
-                if (adminAuthModal) adminAuthModal.classList.remove("active");
-            });
-        }
-
-        if (adminAuthModal) {
-            adminAuthModal.addEventListener("click", (e) => {
-                if (e.target === adminAuthModal) {
-                    adminAuthModal.classList.remove("active");
-                }
-            });
-        }
-
-        if (adminAuthForm) {
-            adminAuthForm.addEventListener("submit", (e) => {
-                e.preventDefault();
-                const enteredPass = adminAuthPassword ? adminAuthPassword.value : "";
-                if (enteredPass === ADMIN_PASSWORD) {
-                    isAdminAuthenticated = true;
-                    if (adminAuthModal) adminAuthModal.classList.remove("active");
-                    renderAdminAgendaRows();
-                    renderAdminRsvpList();
-                    if (adminModal) adminModal.classList.add("active");
-                } else {
-                    if (adminAuthError) adminAuthError.style.display = "block";
-                }
-            });
-        }
-
-        const btnClearAllRsvp = document.getElementById("btnClearAllRsvp");
-        if (btnClearAllRsvp) {
-            btnClearAllRsvp.addEventListener("click", async () => {
-                if (wishesData.length === 0) return;
-                
-                if (db && currentUser) {
-                    try {
-                        for (const item of wishesData) {
-                            if (item.id) {
-                                await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'wishes', String(item.id)));
-                            }
-                        }
-                    } catch (err) {
-                        console.error("Ralat memadam semua RSVP:", err);
-                    }
-                } else {
-                    wishesData = [];
-                    renderAdminRsvpList();
-                    renderWishesList();
-                }
-                
-                if (toastMsg) {
-                    toastMsg.innerText = "Semua rekod RSVP telah dipadam!";
-                    toastMsg.classList.add("show");
-                    setTimeout(() => {
-                        toastMsg.innerText = "RSVP anda berjaya dihantar! Terima kasih.";
-                        toastMsg.classList.remove("show");
-                    }, 2500);
-                }
-            });
-        }
-
-        if (closeAdminBtn) {
-            closeAdminBtn.addEventListener("click", () => {
-                if (adminModal) adminModal.classList.remove("active");
-            });
-        }
-
-        if (adminModal) {
-            adminModal.addEventListener("click", (e) => {
-                if (e.target === adminModal) {
-                    adminModal.classList.remove("active");
-                }
-            });
-        }
-
-        if (adminForm) {
-            adminForm.addEventListener("submit", async (e) => {
-                e.preventDefault();
-
-                applyTheme(selectedThemeId);
-
-                const audioUrlVal = document.getElementById("inputAudioUrl")?.value || "";
-                if (audioUrlVal && bgAudio) {
-                    bgAudio.src = audioUrlVal;
-                }
-
-                const namaHost = document.getElementById("inputNamaHost")?.value || "";
-                const namaLelaki = document.getElementById("inputLelaki")?.value || "";
-                const namaPerempuan = document.getElementById("inputPerempuan")?.value || "";
-                const tarikh = document.getElementById("inputTarikh")?.value || "";
-                const masa = document.getElementById("inputMasa")?.value || "";
-                const lokasi = document.getElementById("inputLokasi")?.value || "";
-                const lokasiSub = document.getElementById("inputLokasiSub")?.value || "";
-
-                syncAdminInputsToData();
-                renderMainAgenda();
-
-                const showDressCode = document.getElementById("toggleDressCode")?.checked ?? true;
-                const showStickyNav = document.getElementById("toggleStickyNav")?.checked ?? true;
-
-                const settingsPayload = {
-                    themeId: selectedThemeId,
-                    audioUrl: audioUrlVal,
-                    namaHost,
-                    namaLelaki,
-                    namaPerempuan,
-                    tarikh,
-                    masa,
-                    lokasi,
-                    lokasiSub,
-                    agenda: agendaData,
-                    showDressCode,
-                    showStickyNav,
-                    updatedAt: new Date().toISOString()
+            container.querySelectorAll('.btn-del-single').forEach(btn => {
+                btn.onclick = () => {
+                    const id = btn.getAttribute('data-id');
+                    customConfirm("Adakah anda pasti mahu memadam rekod RSVP ini?", async () => {
+                        if(!auth.currentUser) return;
+                        await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'wishes', id));
+                        showToast("Rekod dipadam.");
+                    });
                 };
-
-                if (db && currentUser) {
-                    try {
-                        const settingsDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'config');
-                        await setDoc(settingsDocRef, settingsPayload, { merge: true });
-                    } catch (err) {
-                        console.error("Gagal menyimpan tetapan ke Firebase:", err);
-                    }
-                } else {
-                    applySettingsFromFirebase(settingsPayload);
-                }
-
-                if (adminModal) adminModal.classList.remove("active");
-
-                if (toastMsg) {
-                    toastMsg.innerText = "Maklumat & Tema kad berjaya dikemaskini!";
-                    toastMsg.classList.add("show");
-                    setTimeout(() => {
-                        toastMsg.innerText = "RSVP anda berjaya dihantar! Terima kasih.";
-                        toastMsg.classList.remove("show");
-                    }, 3500);
-                }
             });
         }
 
-        // Initial setup
-        initThemeSelector();
-        renderMainAgenda();
-        renderWishesList();
-        setupAutoplayOnFirstTouch();
-        initFirebase();
+        document.getElementById('btnOpenManageRsvp').onclick = () => {
+            toggleModal('manageRsvpModal', true);
+            renderAdminRsvpList();
+        };
+        document.getElementById('closeManageRsvpBtn').onclick = () => toggleModal('manageRsvpModal', false);
 
-        const initLokasi = document.getElementById("displayLokasiNama")?.innerText || "";
-        const initLokasiSub = document.getElementById("displayLokasiSub")?.innerText || "";
-        updateMapLinks(initLokasi, initLokasiSub);
-
-        if (rsvpForm) {
-            rsvpForm.addEventListener("submit", async (e) => {
-                e.preventDefault();
-                
-                const namaVal = document.getElementById("nama")?.value || "";
-                const kehadiranVal = document.getElementById("kehadiran")?.value || "";
-                const bilanganVal = document.getElementById("bilangan")?.value || "";
-                const ucapanVal = document.getElementById("ucapan")?.value || "";
-
-                const statusBox = document.getElementById("rsvpSubmitStatus");
-                const submitBtn = document.getElementById("btnSubmitRsvp");
-
-                if (statusBox) statusBox.style.display = "block";
-                if (submitBtn) submitBtn.disabled = true;
-
-                const rsvpPayload = {
-                    name: namaVal,
-                    status: kehadiranVal,
-                    pax: bilanganVal,
-                    wish: ucapanVal,
-                    createdAt: new Date().toISOString()
-                };
-
-                if (db && currentUser) {
-                    try {
-                        const wishesCollRef = collection(db, 'artifacts', appId, 'public', 'data', 'wishes');
-                        await addDoc(wishesCollRef, rsvpPayload);
-                    } catch (err) {
-                        console.error("Gagal menyimpan RSVP ke Firebase:", err);
-                    }
-                } else {
-                    wishesData.unshift({ id: Date.now(), ...rsvpPayload });
-                    renderWishesList();
-                }
-
-                if (GOOGLE_SCRIPT_URL && !GOOGLE_SCRIPT_URL.includes("YOUR_SCRIPT_ID_HERE")) {
-                    const formData = new URLSearchParams();
-                    formData.append("nama", namaVal);
-                    formData.append("kehadiran", kehadiranVal);
-                    formData.append("bilangan", bilanganVal);
-                    formData.append("ucapan", ucapanVal);
-                    formData.append("tarikh", new Date().toLocaleString("ms-MY"));
-
-                    fetch(GOOGLE_SCRIPT_URL, {
-                        method: "POST",
-                        mode: "no-cors",
-                        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                        body: formData.toString()
-                    }).catch(err => console.log("Ralat menghantar RSVP ke Apps Script:", err));
-                }
-
-                setTimeout(() => {
-                    if (statusBox) statusBox.style.display = "none";
-                    if (submitBtn) submitBtn.disabled = false;
-                    if (rsvpModal) rsvpModal.classList.remove("active");
-                    
-                    if (toastMsg) {
-                        toastMsg.innerText = "RSVP anda telah berjaya disimpan! Terima kasih.";
-                        toastMsg.classList.add("show");
-                        setTimeout(() => {
-                            toastMsg.classList.remove("show");
-                        }, 4000);
-                    }
-
-                    rsvpForm.reset();
-                }, 600);
+        document.getElementById('btnTriggerDeleteAll').onclick = () => {
+            if(!wishesData.length) return showToast("Tiada data untuk dipadam.");
+            customConfirm("Amaran: Adakah anda pasti mahu memadam SEMUA senarai RSVP & Ucapan?", async () => {
+                if(!auth.currentUser) return;
+                const q = await getDocs(collection(db, 'artifacts', appId, 'public', 'data', 'wishes'));
+                const batch = writeBatch(db);
+                q.forEach(d => batch.delete(d.ref));
+                await batch.commit();
+                showToast('Semua rekod dipadam.');
             });
-        }
+        };
 
-        const addCalendarBtn = document.getElementById("addCalendarBtn");
-        if (addCalendarBtn) {
-            addCalendarBtn.addEventListener("click", function() {
-                const lelaki = document.getElementById("displayNamaLelaki")?.innerText || "";
-                const perempuan = document.getElementById("displayNamaPerempuan")?.innerText || "";
-                const lokasi = (document.getElementById("displayLokasiNama")?.innerText || "") + ", " + (document.getElementById("displayLokasiSub")?.innerText || "");
-                
-                const title = `Majlis Akad Nikah ${lelaki} & ${perempuan}`;
-                const details = `Majlis Akad Nikah ${lelaki} & ${perempuan} bertempat di ${lokasi}.`;
-                const startDate = "20261024T083000Z"; 
-                const endDate = "20261024T110000Z";
+        // Initialize App
+        renderAgenda();
+        initApp();
 
-                const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startDate}/${endDate}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(lokasi)}`;
-                window.open(googleCalendarUrl, '_blank');
-            });
-        }
-
-        function escapeHtml(text) {
-            return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-        }
     </script>
 </body>
 </html>
