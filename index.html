@@ -76,14 +76,14 @@
 
         /* Layout & Container */
         .app-wrapper {
-            width: 100%; max-width: 480px; margin: 0 auto; padding: 25px 15px 90px 15px;
-            display: flex; flex-direction: column; gap: 20px;
+            width: 100%; max-width: 500px; margin: 0 auto; padding: 20px 8px 90px 8px;
+            display: flex; flex-direction: column; gap: 16px;
         }
 
         /* Glassmorphism Panel */
         .glass-panel {
             background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border); border-radius: 28px; padding: 28px 24px;
+            border: 1px solid var(--glass-border); border-radius: 24px; padding: 26px 16px;
             box-shadow: var(--glass-shadow); position: relative; overflow: hidden; text-align: center;
         }
 
@@ -171,7 +171,7 @@
         @keyframes spinDisc { 100% { transform: rotate(360deg); } }
 
         .sticky-nav {
-            position: fixed; bottom: 0; left: 0; right: 0; width: 100%; max-width: 480px; margin: 0 auto;
+            position: fixed; bottom: 0; left: 0; right: 0; width: 100%; max-width: 500px; margin: 0 auto;
             background: var(--glass-bg); backdrop-filter: blur(20px); border-top: 1px solid var(--glass-border);
             display: flex; justify-content: space-around; padding: 12px 0; z-index: 1000;
         }
@@ -254,8 +254,8 @@
         }
         .intro-card {
             background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border); border-radius: 28px; padding: 50px 20px;
-            box-shadow: var(--glass-shadow); text-align: center; width: 90%; max-width: 400px;
+            border: 1px solid var(--glass-border); border-radius: 28px; padding: 40px 15px;
+            box-shadow: var(--glass-shadow); text-align: center; width: 94%; max-width: 450px;
             position: relative; overflow: hidden;
             animation: cardEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             opacity: 0; transform: translateY(30px) scale(0.95);
